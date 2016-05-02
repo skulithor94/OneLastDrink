@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/SkuliTestScene.unity
+- path: Assets/HaukurTestScene.unity
   isLoaded: 1
   isActive: 1

@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/SkuliTestScene.unity
-  isLoaded: 1
-  isActive: 1

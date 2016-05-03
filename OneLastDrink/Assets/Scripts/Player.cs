@@ -13,8 +13,6 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3 pos = transform.position;
-		Quaternion rot = transform.rotation;
 
 		//Get the coordinate of the mousepointer
 		Vector3 mouse = Camera.main.ScreenToWorldPoint (Input.mousePosition);

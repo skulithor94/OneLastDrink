@@ -12,6 +12,8 @@ public class CameraControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		//Used to match the position of the camera to the position of the player.
 		transform.position = new Vector3 (player.position.x, player.position.y, transform.position.z);
 	}
 }

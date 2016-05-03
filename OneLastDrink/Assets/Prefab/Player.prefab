@@ -44,6 +44,7 @@ GameObject:
   - 114: {fileID: 11455156}
   - 50: {fileID: 5035464}
   - 58: {fileID: 5802542}
+  - 114: {fileID: 11437066}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -70,10 +71,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.5, y: -7.58, z: 0}
-  m_LocalScale: {x: 0.29011977, y: 0.26542822, z: 1}
-  m_Children: []
+  m_LocalPosition: {x: -3.24, y: 0.37, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 434986}
+  - {fileID: 405728}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &434986
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 421642}
   m_RootOrder: 0
 --- !u!50 &5035464
 Rigidbody2D:
@@ -106,25 +121,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.86
-  m_LocalPosition: {x: 10.3, y: 0.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 434986}
-  - {fileID: 405728}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
---- !u!4 &434986
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104346}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 421642}
-  m_RootOrder: 0
 --- !u!108 &10851814
 Light:
   m_ObjectHideFlags: 1
@@ -191,6 +187,20 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11437066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b7f5afb967943f8a7170a39029c5f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pillBoxPrefab: {fileID: 135478, guid: 51e54d7bdbee1447195794622d0196f5, type: 2}
+  pillBoxCount: 10
+  fireDelay: 0.5
 --- !u!114 &11455156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,8 +210,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8d3509da912c460d92604f84e241ac5, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21239070
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -213,7 +223,7 @@ SpriteRenderer:
   m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices:
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
   m_ReflectionProbeUsage: 0

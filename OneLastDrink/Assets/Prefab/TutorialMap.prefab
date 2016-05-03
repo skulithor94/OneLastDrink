@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 409844}
   - 212: {fileID: 21202060}
   - 68: {fileID: 6828670}
+  - 50: {fileID: 5024984}
   m_Layer: 10
   m_Name: walls (1)
   m_TagString: Untagged
@@ -27,6 +28,7 @@ GameObject:
   - 4: {fileID: 426286}
   - 212: {fileID: 21246602}
   - 68: {fileID: 6836242}
+  - 50: {fileID: 5091318}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
@@ -44,6 +46,7 @@ GameObject:
   - 4: {fileID: 493890}
   - 212: {fileID: 21244786}
   - 68: {fileID: 6897092}
+  - 50: {fileID: 5051648}
   m_Layer: 10
   m_Name: walls
   m_TagString: Untagged
@@ -118,6 +121,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 418950}
   m_RootOrder: 0
+--- !u!50 &5024984
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160634}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!50 &5051648
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187636}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!50 &5091318
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182362}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!68 &6828670
 EdgeCollider2D:
   m_ObjectHideFlags: 1

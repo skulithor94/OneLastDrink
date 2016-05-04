@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour {
 	GameObject canvasScore;
 	GameObject nextLevelButton;
 	Animator anim;
+	public string scene;
 
 	// Use this for initialization
 	void Start () {
@@ -43,6 +44,6 @@ public class GameController : MonoBehaviour {
 
 	public void loadNextLevel(){
 		//Load appropriate level
-		//SceneManager.LoadScene("HaukurTestScene");
+		SceneManager.LoadScene(scene);
 	}
 }

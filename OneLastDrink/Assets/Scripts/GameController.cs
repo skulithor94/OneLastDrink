@@ -40,4 +40,9 @@ public class GameController : MonoBehaviour {
         //SceneManager.LoadScene("HaukurTestScene");
         
     }
+
+	public void loadNextLevel(){
+		//Load appropriate level
+		//SceneManager.LoadScene("HaukurTestScene");
+	}
 }

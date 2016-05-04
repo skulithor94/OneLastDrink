@@ -1,60 +1,43 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
-   // public GUIText gameOverT;
-
-
-    //public GUIText scoreText;
-   // private bool WinLevel;
-    private bool nextLevel;
+ 
     private int score;
+	GameObject player;
+	GameObject canvasScore;
+	GameObject nextLevelButton;
+	Animator anim;
 
-   // private bool gameOverb = false;
 	// Use this for initialization
 	void Start () {
-       // WinLevel = false;
-        nextLevel = false;
-        //scoreText.text = "";
+		
         //Make sure we don't delete this after loading new scene
         DontDestroyOnLoad(gameObject);
+		player = GameObject.FindGameObjectWithTag ("Player");
+		canvasScore = GameObject.Find ("Score");
+		nextLevelButton = GameObject.Find ("NextLevelButton");
+		canvasScore.SetActive (false);
+		nextLevelButton.SetActive (false);
+		anim = GameObject.Find("HUDCanvas").GetComponent<Animator> ();
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-	
-        if(nextLevel)
-        {
-            if(Input.GetKeyDown(KeyCode.Y))
-            {
-                SceneManager.LoadScene("HaukurTestScene");
-            }
-        }
+
 	}
     
-    public void GameOver()
+    public void nextLevel()
     {
-     //   gameOverT.text = "Game Over!";
-        //gameOverb = true;
-    }
-    public void GameWin()
-    {
-        Time.timeScale = 0.5f;
-       // scoreText.text = "You have won!";
-       // WinLevel = true;
-        nextLevel = true;
-        //Print out score
-        //Print out level nr and write completed
-        //Go to next level
-        //Time.timeScale = 1000f;
-        //Set the game to pause until next level
-        //For pause
-        // Time.timeScale = 0;
-        //If button pushed to go to next level 
+		anim.SetTrigger ("NextLevel");
+		canvasScore.SetActive (true);
+		nextLevelButton.SetActive (true);
+		Destroy (player);
 
         //SceneManager.LoadScene("HaukurTestScene");
-        //CODE
-        Debug.Log("Entering GameController");
+        
     }
 }

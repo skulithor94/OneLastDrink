@@ -10,8 +10,9 @@ public class Progress : MonoBehaviour {
 	//could be changed to seconds later
 	public Image flashlight;
 	public float flashlightSpeed;
-	public GameOverManager gameOverManager;
 	public GameObject player;
+
+	GameOverManager gameOverManager;
 
 	// Use this for initialization
 	void Start () {

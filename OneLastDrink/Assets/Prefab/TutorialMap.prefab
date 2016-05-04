@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &119030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 429630}
+  - 61: {fileID: 6158386}
+  m_Layer: 10
+  m_Name: closet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &139876
 GameObject:
   m_ObjectHideFlags: 0
@@ -52,8 +68,21 @@ Transform:
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children:
   - {fileID: 467830}
+  - {fileID: 429630}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &429630
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.88, y: -0.97, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 418950}
+  m_RootOrder: 1
 --- !u!4 &467830
 Transform:
   m_ObjectHideFlags: 1
@@ -108,6 +137,20 @@ BoxCollider2D:
   m_Offset: {x: 6.8694935, y: -3.1064544}
   serializedVersion: 2
   m_Size: {x: 0.7367096, y: 1.2329104}
+--- !u!61 &6158386
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119030}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.051805973, y: -0.004709959}
+  serializedVersion: 2
+  m_Size: {x: 0.7080019, y: 0.9905801}
 --- !u!61 &6164948
 BoxCollider2D:
   m_ObjectHideFlags: 1

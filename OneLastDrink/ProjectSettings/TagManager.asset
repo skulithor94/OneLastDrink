@@ -9,6 +9,7 @@ TagManager:
   - Door
   - Pills
   - Player
+  - GameOverManager
   layers:
   - Default
   - TransparentFX

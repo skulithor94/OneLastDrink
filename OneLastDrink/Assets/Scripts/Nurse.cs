@@ -32,12 +32,7 @@ public class Nurse : MonoBehaviour {
 			highAsAKite ();
 			break;
 		}
-
-		/*if (spotted) {
-			float z = Mathf.Atan2 ((player.transform.position.y - transform.position.y), (player.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
-			transform.eulerAngles = new Vector3 (0, 0, z);
-			GetComponent<Rigidbody2D>().AddForce (gameObject.transform.up * speed);
-		}*/
+			
 	}
 
 	void patrol() {
@@ -65,20 +60,21 @@ public class Nurse : MonoBehaviour {
 	}
 
 	void highAsAKite(){
+		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		if (onDrugs >= drugPhase) {
 			onDrugs = 0f;
+			following = null;
 			state = states.PATROL;
-			GetComponent<Rigidbody2D> ().rotation = 180;
 		}
 		else if(onDrugs < drugPhase){
 			onDrugs += Time.deltaTime;
-			GetComponent<Rigidbody2D> ().rotation += 5;
+			GetComponent<Rigidbody2D> ().transform.Rotate(new Vector3(0,0,5));
 		}
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
 		if (coll.collider.tag == "Pills") {
-			Destroy (GameObject.FindWithTag("Pills"));
+			Destroy (coll.gameObject);
 			state = states.DRUGGED;
 		}
 	}

@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &119030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 429630}
+  - 61: {fileID: 6158386}
+  m_Layer: 10
+  m_Name: closet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &139876
 GameObject:
   m_ObjectHideFlags: 0
@@ -18,6 +34,8 @@ GameObject:
   - 68: {fileID: 6839394}
   - 61: {fileID: 6179770}
   - 61: {fileID: 6106858}
+  - 61: {fileID: 6123206}
+  - 61: {fileID: 6190522}
   m_Layer: 10
   m_Name: walls
   m_TagString: Untagged
@@ -52,8 +70,21 @@ Transform:
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children:
   - {fileID: 467830}
+  - {fileID: 429630}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &429630
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.88, y: -0.97, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 418950}
+  m_RootOrder: 1
 --- !u!4 &467830
 Transform:
   m_ObjectHideFlags: 1
@@ -80,6 +111,20 @@ BoxCollider2D:
   m_Offset: {x: 8.97, y: -1.2114687}
   serializedVersion: 2
   m_Size: {x: 1, y: 3.4229374}
+--- !u!61 &6123206
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139876}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 3.466691, y: 1.88}
+  serializedVersion: 2
+  m_Size: {x: 5.818364, y: 1.0000002}
 --- !u!61 &6143810
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -108,6 +153,20 @@ BoxCollider2D:
   m_Offset: {x: 6.8694935, y: -3.1064544}
   serializedVersion: 2
   m_Size: {x: 0.7367096, y: 1.2329104}
+--- !u!61 &6158386
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119030}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.051805973, y: -0.004709959}
+  serializedVersion: 2
+  m_Size: {x: 0.7080019, y: 0.9905801}
 --- !u!61 &6164948
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -164,6 +223,20 @@ BoxCollider2D:
   m_Offset: {x: 7.1711345, y: 0.4354397}
   serializedVersion: 2
   m_Size: {x: 2.7822695, y: 1.8708797}
+--- !u!61 &6190522
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139876}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 1.791884, y: -4.23}
+  serializedVersion: 2
+  m_Size: {x: 2.7027245, y: 1}
 --- !u!61 &6196470
 BoxCollider2D:
   m_ObjectHideFlags: 1

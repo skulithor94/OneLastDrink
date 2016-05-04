@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pills
   - Player
+  - GameOverManager
   layers:
   - Default
   - TransparentFX

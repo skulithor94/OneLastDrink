@@ -20,10 +20,9 @@ public class Player : MonoBehaviour {
 		//if the distance between the mouse and the player is greater than 10.1, don't know why that number
 		//the rotation based on the look rotation, it is then changed into a euler angle.
 		if (Vector3.Distance (mouse, transform.position) <= 10.1f) {
-			transform.rotation = transform.rotation;
+			transform.rotation = transform.rotation; //THIS IS POINTLESS!
 		} else {
-			Quaternion rotChange = Quaternion.LookRotation (transform.position - mouse, Vector3.forward);
-			transform.rotation = Quaternion.Euler (0, 0, rotChange.eulerAngles.z);
+			transform.rotation = Quaternion.LookRotation (Vector3.forward, (mouse - transform.position).normalized);
 		}
 
 		//The position of the player is recalculated based on the user's input and multiplied by the 

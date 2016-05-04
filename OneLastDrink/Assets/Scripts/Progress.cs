@@ -16,8 +16,7 @@ public class Progress : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//There must be a better way..
-		gameOverManager = FindObjectOfType (typeof(GameOverManager)) as GameOverManager;
+		gameOverManager = GameObject.FindGameObjectWithTag("GameOverManager").GetComponent<GameOverManager>();
 	}
 	
 	// Update is called once per frame

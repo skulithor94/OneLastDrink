@@ -16,8 +16,7 @@ public class Player : MonoBehaviour {
 
 		//Get the coordinate of the mousepointer
 		Vector3 mouse = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-
-		//if the distance between the mouse and the player is greater than 10.1, don't know why that number
+		//if the distance between the mouse and the player is greater than 10.1, don't know why that number     
 		//the rotation based on the look rotation, it is then changed into a euler angle.
 		if (Vector3.Distance (mouse, transform.position) <= 10.1f) {
 			transform.rotation = transform.rotation;

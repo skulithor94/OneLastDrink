@@ -59,7 +59,7 @@ GameObject:
   - 4: {fileID: 479592}
   - 212: {fileID: 21272160}
   m_Layer: 8
-  m_Name: level1 (1)
+  m_Name: level1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

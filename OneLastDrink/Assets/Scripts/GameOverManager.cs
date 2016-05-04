@@ -25,7 +25,7 @@ public class GameOverManager : MonoBehaviour {
 				SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 			}
 		}
-	}
+	}   
 
 	public void gameOver(){
 		gameOverCheck = true;

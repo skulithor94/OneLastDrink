@@ -20,8 +20,11 @@ public class ExitDoor : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-            gameController.nextLevel();
-        }
+            //WIN
+            gameController.GameWin();
+            //Progress to next level
+            Debug.Log("This works");
+        } 
 
     }
 

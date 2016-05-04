@@ -10,12 +10,12 @@ public class Progress : MonoBehaviour {
 	//could be changed to seconds later
 	public Image flashlight;
 	public float flashlightSpeed;
-	public GameObject player;
 
 	GameOverManager gameOverManager;
 
 	// Use this for initialization
 	void Start () {
+		//Allows for interaction with gameOverManager functions
 		gameOverManager = GameObject.FindGameObjectWithTag("GameOverManager").GetComponent<GameOverManager>();
 	}
 	
@@ -23,8 +23,6 @@ public class Progress : MonoBehaviour {
 	void Update () {
 		//If the image's fill amount is 0 the game ends, if not the flashlight fill amount decreases.
 		if (flashlight.fillAmount <= 0f) {
-			//Destroy the current player so that the lights go out.
-			Destroy (player);
 			gameOverManager.gameOver ();
 		}else{	
 			flashlight.fillAmount -= flashlightSpeed * Time.deltaTime;

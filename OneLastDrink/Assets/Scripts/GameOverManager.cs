@@ -13,6 +13,7 @@ public class GameOverManager : MonoBehaviour {
 	public Button GORetryButton;
 	public Button GOExitButton;
 	GameObject gameOverText;
+	GameObject player;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,7 @@ public class GameOverManager : MonoBehaviour {
 		anim = GameObject.Find("HUDCanvas").GetComponent<Animator> ();
 		gameOverText = GameObject.Find ("GameOverText");
 		gameOverText.SetActive (false);
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 	
 	// Update is called once per frame
@@ -30,6 +32,9 @@ public class GameOverManager : MonoBehaviour {
 	public void gameOver(){
 		anim.SetTrigger ("GameOver");
 		gameOverText.SetActive (true);
+
+		//Destroy the current player so that the lights go out.
+		Destroy (player);
 	}
 
 	public void retry(){

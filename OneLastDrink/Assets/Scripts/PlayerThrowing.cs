@@ -5,7 +5,7 @@ using System.Collections;
 public class PlayerThrowing : MonoBehaviour {
 
 	public GameObject pillBoxPrefab;
-	public float pillBoxCount = 10;
+	public int pillBoxCount = 3;
 	public float fireDelay = 0.5f;
 	float cooldownTimer = 0;
 	

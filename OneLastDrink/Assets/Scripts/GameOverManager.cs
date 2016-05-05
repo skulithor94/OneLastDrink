@@ -14,6 +14,7 @@ public class GameOverManager : MonoBehaviour {
 	public Button GOExitButton;
 	GameObject gameOverText;
 	GameObject player;
+	Nurse[] nurses;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +23,8 @@ public class GameOverManager : MonoBehaviour {
 		gameOverText = GameObject.Find ("GameOverText");
 		gameOverText.SetActive (false);
 		player = GameObject.FindGameObjectWithTag ("Player");
+		nurses = GameObject.FindObjectsOfType<Nurse> ();
+		Debug.Log (nurses);
 	}
 	
 	// Update is called once per frame 
@@ -35,6 +38,9 @@ public class GameOverManager : MonoBehaviour {
 
 		//Destroy the current player so that the lights go out.
 		Destroy (player);
+		foreach (Nurse nurse in nurses) {
+			Destroy (nurse);
+		}
 	}
 
 	public void retry(){

@@ -42,7 +42,6 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 	public void exit(){
-		Debug.Log ("LOL");
-		//TODO: Go to main menu
+		SceneManager.LoadScene ("MainMenu");
 	}
 }

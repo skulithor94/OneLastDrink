@@ -9,6 +9,7 @@ public class Nurse : MonoBehaviour {
 	public enum states {PATROL, PILLS, PLAYER, DRUGGED};
 	public states state;
 	public float onDrugs, drugPhase = 3f;
+	float RAYCASTVIEW = 30;
 
 	void Start(){
 		state = states.PATROL;
@@ -36,7 +37,8 @@ public class Nurse : MonoBehaviour {
 	}
 
 	void patrol() {
-		hit = Physics2D.Raycast (transform.position, -Vector2.up, 30, LayerMask.GetMask("Player"));
+		hit = Physics2D.Raycast (transform.position, raycastAngle(), RAYCASTVIEW, LayerMask.GetMask("Player"));
+		Debug.Log ("Angle: " + raycastAngle ());
 		if (hit.collider != null) {
 			following = hit.transform.gameObject.transform;
 			if (hit.collider.tag == "Pills") {
@@ -71,6 +73,11 @@ public class Nurse : MonoBehaviour {
 			onDrugs += Time.deltaTime;
 			GetComponent<Rigidbody2D> ().transform.Rotate(new Vector3(0,0,5));
 		}
+	}
+
+	Vector2 raycastAngle(){
+		float radians = Mathf.Deg2Rad * (transform.eulerAngles.z + 90);
+		return new Vector2 (Mathf.Cos (radians), Mathf.Sin (radians));
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){

@@ -8,6 +8,6 @@ public class MainMenu : MonoBehaviour {
 	public void LoadLevel()
     {
         //Scene
-        SceneManager.LoadScene("HaukurTestScene");
+        SceneManager.LoadScene("Level00");
     }
 }

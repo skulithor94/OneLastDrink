@@ -9,9 +9,12 @@ public class Nurse : MonoBehaviour {
 	public enum states {PATROL, PILLS, PLAYER, DRUGGED};
 	public states state;
 	public float onDrugs, drugPhase = 3f;
+	float RAYCASTVIEW = 30;
+	GameOverManager gameOverManager;
 
 	void Start(){
 		state = states.PATROL;
+		gameOverManager = GameObject.FindGameObjectWithTag("GameOverManager").GetComponent<GameOverManager>();
 	}
 
 
@@ -36,7 +39,7 @@ public class Nurse : MonoBehaviour {
 	}
 
 	void patrol() {
-		hit = Physics2D.Raycast (transform.position, -Vector2.up, 30, LayerMask.GetMask("Player"));
+		hit = Physics2D.Raycast (transform.position, raycastAngle(), RAYCASTVIEW, LayerMask.GetMask("Player"));
 		if (hit.collider != null) {
 			following = hit.transform.gameObject.transform;
 			if (hit.collider.tag == "Pills") {
@@ -73,10 +76,19 @@ public class Nurse : MonoBehaviour {
 		}
 	}
 
+	Vector2 raycastAngle(){
+		float radians = Mathf.Deg2Rad * (transform.eulerAngles.z + 90);
+		return new Vector2 (Mathf.Cos (radians), Mathf.Sin (radians));
+	}
+
 	void OnCollisionEnter2D(Collision2D coll){
 		if (coll.collider.tag == "Pills") {
 			Destroy (coll.gameObject);
 			state = states.DRUGGED;
+		}
+		if (coll.collider.tag == "Player") {
+			GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+			gameOverManager.gameOver ();
 		}
 	}
 

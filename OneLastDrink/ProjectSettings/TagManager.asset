@@ -10,6 +10,8 @@ TagManager:
   - Pills
   - Player
   - GameOverManager
+  - Closet
+  - Light
   layers:
   - Default
   - TransparentFX

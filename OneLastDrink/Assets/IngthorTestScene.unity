@@ -304,6 +304,18 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 11482126, guid: 580e55d974f6f4a7dbd0a538d8df269f, type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482126, guid: 580e55d974f6f4a7dbd0a538d8df269f, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482126, guid: 580e55d974f6f4a7dbd0a538d8df269f, type: 2}
+      propertyPath: m_Color.b
+      value: 0.13103461
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 580e55d974f6f4a7dbd0a538d8df269f, type: 2}
   m_IsPrefabParent: 0
@@ -711,7 +723,7 @@ Prefab:
       objectReference: {fileID: 736206586}
     - target: {fileID: 11422388, guid: cd003c1e533f64aa9ab8c060523b3e06, type: 2}
       propertyPath: flashlightSpeed
-      value: 0.02
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd003c1e533f64aa9ab8c060523b3e06, type: 2}

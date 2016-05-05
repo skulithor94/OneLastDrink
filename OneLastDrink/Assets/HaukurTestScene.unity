@@ -179,7 +179,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 479592, guid: 87646db9494ebdd408c747797748e313, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6196918, guid: 87646db9494ebdd408c747797748e313, type: 2}
       propertyPath: m_IsTrigger
@@ -231,10 +231,6 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1933351262}
-    - target: {fileID: 11479010, guid: 2667651f4c3432b4ba0db9d42f58f330, type: 2}
-      propertyPath: speed
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2667651f4c3432b4ba0db9d42f58f330, type: 2}
   m_IsPrefabParent: 0

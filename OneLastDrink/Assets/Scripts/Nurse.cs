@@ -38,7 +38,6 @@ public class Nurse : MonoBehaviour {
 
 	void patrol() {
 		hit = Physics2D.Raycast (transform.position, raycastAngle(), RAYCASTVIEW, LayerMask.GetMask("Player"));
-		Debug.Log ("Angle: " + raycastAngle ());
 		if (hit.collider != null) {
 			following = hit.transform.gameObject.transform;
 			if (hit.collider.tag == "Pills") {

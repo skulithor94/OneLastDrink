@@ -5,11 +5,13 @@ public class Player : MonoBehaviour {
 
 	//Speed of player, this value may change as development continues
 	float speed = 10f;
+    private Light myLight;
 
 	// Use this for initialization
 	void Start () {
-	
-	}
+        //Find the flashlight
+        myLight = GameObject.Find("PlayerSpotlight").GetComponentInChildren<Light>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -28,5 +30,11 @@ public class Player : MonoBehaviour {
 		//rotation to get controls to work as expected. 
 		Vector3 posChange = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * speed * Time.deltaTime;
 		transform.position += transform.rotation * posChange;
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            //Enable the flashlight//Or disable
+            myLight.enabled = !myLight.enabled;
+        }
 	}
 }

@@ -92,4 +92,10 @@ public class Nurse : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerEnter2D(Collider2D coll){
+		if (coll.gameObject.tag == "Pills") {
+			following = coll.gameObject.transform;
+			state = states.PILLS;
+		}
+	}
 }

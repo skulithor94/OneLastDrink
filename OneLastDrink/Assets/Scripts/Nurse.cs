@@ -16,7 +16,7 @@ public class Nurse : MonoBehaviour {
 
 
 	void FixedUpdate(){
-		hit = Physics2D.Raycast (transform.position, -Vector2.up, 30, LayerMask.GetMask("Player"));
+		
 
 		switch (state) {
 		case states.PATROL:
@@ -36,11 +36,11 @@ public class Nurse : MonoBehaviour {
 	}
 
 	void patrol() {
+		hit = Physics2D.Raycast (transform.position, -Vector2.up, 30, LayerMask.GetMask("Player"));
 		if (hit.collider != null) {
 			following = hit.transform.gameObject.transform;
 			if (hit.collider.tag == "Pills") {
 				state = states.PILLS;
-				GetComponent<Rigidbody2D> ().AddForce (gameObject.transform.up * speed);
 			} else if (hit.collider.tag == "Player") {
 				state = states.PLAYER;
 			}
@@ -64,6 +64,7 @@ public class Nurse : MonoBehaviour {
 		if (onDrugs >= drugPhase) {
 			onDrugs = 0f;
 			following = null;
+			GetComponent<Rigidbody2D> ().angularVelocity = 0f;
 			state = states.PATROL;
 		}
 		else if(onDrugs < drugPhase){

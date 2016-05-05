@@ -11,6 +11,8 @@ TagManager:
   - Player
   - GameOverManager
   - Closet
+=======
+  - Light
   layers:
   - Default
   - TransparentFX

@@ -10,9 +10,11 @@ public class Nurse : MonoBehaviour {
 	public states state;
 	public float onDrugs, drugPhase = 3f;
 	float RAYCASTVIEW = 30;
+	GameOverManager gameOverManager;
 
 	void Start(){
 		state = states.PATROL;
+		gameOverManager = GameObject.FindGameObjectWithTag("GameOverManager").GetComponent<GameOverManager>();
 	}
 
 
@@ -83,6 +85,10 @@ public class Nurse : MonoBehaviour {
 		if (coll.collider.tag == "Pills") {
 			Destroy (coll.gameObject);
 			state = states.DRUGGED;
+		}
+		if (coll.collider.tag == "Player") {
+			GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+			gameOverManager.gameOver ();
 		}
 	}
 

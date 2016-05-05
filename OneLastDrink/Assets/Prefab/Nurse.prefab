@@ -42,6 +42,7 @@ GameObject:
   - 50: {fileID: 5043872}
   - 58: {fileID: 5865302}
   - 114: {fileID: 11460990}
+  - 58: {fileID: 5849370}
   m_Layer: 11
   m_Name: Nurse
   m_TagString: Untagged
@@ -68,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 13.2, z: 0}
+  m_LocalPosition: {x: -0, y: 30.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 493972}
@@ -79,8 +80,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194070}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.1, y: 18.6, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: -0.00000016292068}
+  m_LocalPosition: {x: -17.46, y: 15.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 410124}
@@ -96,7 +97,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 194070}
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 5
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_IsKinematic: 0
@@ -104,6 +105,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &5849370
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194070}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!58 &5865302
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -129,11 +144,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d442c632a308c34590622e181e0a771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 30
   player: {fileID: 0}
-  sightStart: {fileID: 410124}
-  sightEnd: {fileID: 492442}
-  spotted: 0
+  following: {fileID: 0}
+  state: 0
+  onDrugs: 0
+  drugPhase: 3
 --- !u!212 &21265330
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -6,11 +6,14 @@ public class PillTrajectory : MonoBehaviour {
 	float maxSpeed = 25;
 	float deceleration = 0.98f;
 
+
 	void Start(){
+		/*Vector2 forward = new Vector2 (gameObject.transform.localScale.x, gameObject.transform.localScale.y);
+		gameObject.GetComponent<Rigidbody2D> ().AddForce (forward*10);*/
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (5 < maxSpeed) {
 			Vector3 pos = transform.position;
 
@@ -19,7 +22,6 @@ public class PillTrajectory : MonoBehaviour {
 			transform.position = pos;
 			maxSpeed *= deceleration;
 		}
-
 
 	}
 }

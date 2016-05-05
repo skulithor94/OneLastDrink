@@ -39,10 +39,28 @@ public class GameController : MonoBehaviour {
 		playerWin = true;
 		anim.SetTrigger ("NextLevel");
 		canvasScore.SetActive (true);
-		canvasScore.GetComponent<Text> ().text = "Score:" + GameObject.Find ("ScoreManager").GetComponent<ScoreManager> ().playerScore.ToString();
+		canvasScore.GetComponent<Text> ().text = "Score:" + returnScore ();
 		nextLevelButton.SetActive (true);
 		Destroy (player);
     }
+
+	string returnScore(){
+		float score = GameObject.Find ("ScoreManager").GetComponent<ScoreManager> ().playerScore;
+
+		if (score <= 500f && score >= 450f) {
+			return "A";
+		} else if (score < 450f && score >= 400f) {
+			return "B";
+		} else if (score < 400f && score >= 300f) {
+			return "C";
+		} else if (score < 300f && score >= 200f) {
+			return "D";
+		} else if (score < 200f && score >= 100f) {
+			return "E";
+		}else{
+			return "F";
+		}
+	}
 
 	//Load the next scene which is declared in the object as a public variable.
 	public void loadNextLevel(){

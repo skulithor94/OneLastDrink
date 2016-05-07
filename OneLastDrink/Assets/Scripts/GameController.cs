@@ -47,15 +47,15 @@ public class GameController : MonoBehaviour {
 	string returnScore(){
 		float score = GameObject.Find ("ScoreManager").GetComponent<ScoreManager> ().playerScore;
 
-		if (score <= 500f && score >= 450f) {
+		if (score <= 500f && score >= 400f) {
 			return "A";
-		} else if (score < 450f && score >= 400f) {
-			return "B";
 		} else if (score < 400f && score >= 300f) {
-			return "C";
+			return "B";
 		} else if (score < 300f && score >= 200f) {
-			return "D";
+			return "C";
 		} else if (score < 200f && score >= 100f) {
+			return "D";
+		} else if (score < 100f && score >= 50f) {
 			return "E";
 		}else{
 			return "F";

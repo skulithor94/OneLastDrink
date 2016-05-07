@@ -4,7 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
 	//Speed of player, this value may change as development continues
-	float speed = 10f;
+	float speed = 15f;
     private Light myLight;
 
 	// Use this for initialization
@@ -28,8 +28,15 @@ public class Player : MonoBehaviour {
 
 		//The position of the player is recalculated based on the user's input and multiplied by the 
 		//rotation to get controls to work as expected. 
-		Vector3 posChange = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * speed * Time.deltaTime;
-		transform.position += transform.rotation * posChange;
+		//Vector3 posChange = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * speed * Time.deltaTime;
+		//transform.position += posChange; //transform.rotation * posChange;
+
+		Vector3 x = new Vector3 (0, Input.GetAxis ("Vertical"), 0) * speed * Time.deltaTime;
+		Vector3 y = new Vector3 (Input.GetAxis ("Horizontal"), 0, 0) * speed * Time.deltaTime;
+
+		transform.position += x;
+			
+		transform.position += y;
 
         if(Input.GetKeyDown(KeyCode.F))
         {

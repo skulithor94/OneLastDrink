@@ -44,8 +44,8 @@ public class Nurse : MonoBehaviour {
 	}
    
 	void patrol() {
-            //Shouldn't go here if drugged
-            hit = Physics2D.Raycast (transform.position, raycastAngle(), RAYCASTVIEW, LayerMask.GetMask("Player"));
+        //Shouldn't go here if drugged
+            hit = Physics2D.Raycast(transform.position, raycastAngle(), RAYCASTVIEW, LayerMask.GetMask("Player"));
             if (hit.collider != null)
             {
                 following = hit.transform.gameObject.transform;
@@ -83,8 +83,6 @@ public class Nurse : MonoBehaviour {
 
     //The nurse has gotten the pill and is drugged
 	void highAsAKite(){
-        Debug.Log("Inside High");
-        Debug.Log(isDrugged);
 		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		if (onDrugs >= drugPhase) {
 			onDrugs = 0f;

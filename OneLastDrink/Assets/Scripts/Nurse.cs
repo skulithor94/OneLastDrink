@@ -11,16 +11,19 @@ public class Nurse : MonoBehaviour {
 	public float onDrugs, drugPhase = 3f;
 	float RAYCASTVIEW = 30;
 	GameOverManager gameOverManager;
+    public GameObject nurse;
+    private Collider2D[] colliders;
 
 	void Start(){
 		state = states.PATROL;
 		gameOverManager = GameObject.FindGameObjectWithTag("GameOverManager").GetComponent<GameOverManager>();
+        //Find all Colliders in Nurse
+        nurse = GameObject.FindGameObjectWithTag("Nurse");
+        colliders = nurse.GetComponents<Collider2D>();
 	}
-
 
 	void FixedUpdate(){
 		
-
 		switch (state) {
 		case states.PATROL:
 			patrol ();
@@ -39,7 +42,7 @@ public class Nurse : MonoBehaviour {
 	}
 
 	void patrol() {
-		hit = Physics2D.Raycast (transform.position, raycastAngle(), RAYCASTVIEW, LayerMask.GetMask("Player"));
+        hit = Physics2D.Raycast (transform.position, raycastAngle(), RAYCASTVIEW, LayerMask.GetMask("Player"));
 		if (hit.collider != null) {
 			following = hit.transform.gameObject.transform;
 			if (hit.collider.tag == "Pills") {
@@ -51,7 +54,9 @@ public class Nurse : MonoBehaviour {
 	}
 
 	void followPills(){
-		float z = Mathf.Atan2 ((following.position.y - transform.position.y), (following.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
+        //If she sees another pill, she can get it
+        colliders[0].isTrigger = false;
+        float z = Mathf.Atan2 ((following.position.y - transform.position.y), (following.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
 		transform.eulerAngles = new Vector3 (0, 0, z);
 		GetComponent<Rigidbody2D>().AddForce (gameObject.transform.up * speed);
 	}
@@ -68,7 +73,9 @@ public class Nurse : MonoBehaviour {
 			onDrugs = 0f;
 			following = null;
 			GetComponent<Rigidbody2D> ().angularVelocity = 0f;
-			state = states.PATROL;
+            //Make Nurse collide again
+            colliders[0].isTrigger = false;
+            state = states.PATROL;
 		}
 		else if(onDrugs < drugPhase){
 			onDrugs += Time.deltaTime;
@@ -83,8 +90,11 @@ public class Nurse : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll){
 		if (coll.collider.tag == "Pills") {
+            Debug.Log("We go here");
 			Destroy (coll.gameObject);
-			state = states.DRUGGED;
+            //Make nurse transparent
+            colliders[0].isTrigger = true;
+            state = states.DRUGGED;
 		}
 		if (coll.collider.tag == "Player") {
 			GetComponent<Rigidbody2D> ().velocity = Vector2.zero;

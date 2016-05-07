@@ -24,7 +24,7 @@ public class GameOverManager : MonoBehaviour {
 		gameOverText.SetActive (false);
 		player = GameObject.FindGameObjectWithTag ("Player");
 		nurses = GameObject.FindObjectsOfType<Nurse> ();
-		Debug.Log (nurses);
+		//Debug.Log (nurses);
 	}
 	
 	// Update is called once per frame 

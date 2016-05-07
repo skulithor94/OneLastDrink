@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11479010}
   m_Layer: 10
   m_Name: Nurse
-  m_TagString: Untagged
+  m_TagString: Nurse
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,6 +94,7 @@ MonoBehaviour:
   state: 0
   onDrugs: 0
   drugPhase: 3
+  nurse: {fileID: 0}
 --- !u!212 &21265330
 SpriteRenderer:
   m_ObjectHideFlags: 1

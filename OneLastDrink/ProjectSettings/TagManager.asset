@@ -12,6 +12,7 @@ TagManager:
   - GameOverManager
   - Closet
   - Light
+  - Nurse
   layers:
   - Default
   - TransparentFX

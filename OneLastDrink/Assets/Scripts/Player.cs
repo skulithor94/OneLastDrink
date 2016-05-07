@@ -4,13 +4,22 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
 	//Speed of player, this value may change as development continues
-	float speed = 15f;
+	private float speed = 15f;
+	private float audioDelay = 0.6f;
+	private float audioTimer;
     private Light myLight;
+
+	public AudioClip walk;
+
+	private AudioSource[] source;
+	private float volLowRange = .5f;
+	private float volHighRange = 1.0f;
 
 	// Use this for initialization
 	void Start () {
         //Find the flashlight
         myLight = GameObject.Find("PlayerSpotlight").GetComponentInChildren<Light>();
+		source = GetComponents<AudioSource> ();
     }
 	
 	// Update is called once per frame
@@ -38,6 +47,14 @@ public class Player : MonoBehaviour {
 			
 		transform.position += y;
 
+		//Play sound
+		audioTimer += Time.deltaTime;
+		if(audioTimer >= audioDelay && (Input.GetAxis("Vertical") != 0 || Input.GetAxis ("Horizontal") != 0)){
+			float vol = Random.Range (volLowRange, volHighRange);
+			audioTimer = 0f;
+			source[0].PlayOneShot (walk, vol);
+		}
+			
         if(Input.GetKeyDown(KeyCode.F))
         {
             //Enable the flashlight//Or disable

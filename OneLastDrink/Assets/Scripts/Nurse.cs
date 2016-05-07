@@ -13,6 +13,8 @@ public class Nurse : MonoBehaviour {
 	GameOverManager gameOverManager;
     public GameObject nurse;
     private Collider2D[] colliders;
+    //So that becomes blind when drugged
+    public bool isDrugged;
 
 	void Start(){
 		state = states.PATROL;
@@ -20,13 +22,14 @@ public class Nurse : MonoBehaviour {
         //Find all Colliders in Nurse
         nurse = GameObject.FindGameObjectWithTag("Nurse");
         colliders = nurse.GetComponents<Collider2D>();
+        //Starts not drugged
+        isDrugged = false;
 	}
 
 	void FixedUpdate(){
-		
 		switch (state) {
 		case states.PATROL:
-			patrol ();
+            patrol();
 			break;
 		case states.PILLS:
 			followPills ();
@@ -37,37 +40,51 @@ public class Nurse : MonoBehaviour {
 		case states.DRUGGED:
 			highAsAKite ();
 			break;
-		}
-			
+		}		
 	}
-
+   
 	void patrol() {
-        hit = Physics2D.Raycast (transform.position, raycastAngle(), RAYCASTVIEW, LayerMask.GetMask("Player"));
-		if (hit.collider != null) {
-			following = hit.transform.gameObject.transform;
-			if (hit.collider.tag == "Pills") {
-				state = states.PILLS;
-			} else if (hit.collider.tag == "Player") {
-				state = states.PLAYER;
-			}
-		}
+            //Shouldn't go here if drugged
+            hit = Physics2D.Raycast (transform.position, raycastAngle(), RAYCASTVIEW, LayerMask.GetMask("Player"));
+            if (hit.collider != null)
+            {
+                following = hit.transform.gameObject.transform;
+                if (hit.collider.tag == "Pills")
+                {
+                    //The pill get inside the raycast
+                    state = states.PILLS;
+                }
+                else if (hit.collider.tag == "Player")
+                {
+                    //She sees the player
+                    state = states.PLAYER;
+                }
+            }
+        
 	}
-
-	void followPills(){
+    //The nurse sees the pill and follows
+    void followPills()
+    {
         //If she sees another pill, she can get it
         colliders[0].isTrigger = false;
-        float z = Mathf.Atan2 ((following.position.y - transform.position.y), (following.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
-		transform.eulerAngles = new Vector3 (0, 0, z);
-		GetComponent<Rigidbody2D>().AddForce (gameObject.transform.up * speed);
+        //Doesn't follow the pill but returns to patrol state and sees nothing..
+       // if (isDrugged == false) { 
+            float z = Mathf.Atan2((following.position.y - transform.position.y), (following.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
+            transform.eulerAngles = new Vector3(0, 0, z);
+            GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * speed);
+       // }
 	}
-
+    //The nurse sees the player
 	void followPlayer(){
 		float z = Mathf.Atan2 ((player.transform.position.y - transform.position.y), (player.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
 		transform.eulerAngles = new Vector3 (0, 0, z);
 		GetComponent<Rigidbody2D>().AddForce (gameObject.transform.up * speed);
 	}
 
+    //The nurse has gotten the pill and is drugged
 	void highAsAKite(){
+        Debug.Log("Inside High");
+        Debug.Log(isDrugged);
 		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		if (onDrugs >= drugPhase) {
 			onDrugs = 0f;
@@ -75,12 +92,15 @@ public class Nurse : MonoBehaviour {
 			GetComponent<Rigidbody2D> ().angularVelocity = 0f;
             //Make Nurse collide again
             colliders[0].isTrigger = false;
+            //Time has runned out and she is sober
+            isDrugged = false;
             state = states.PATROL;
 		}
 		else if(onDrugs < drugPhase){
 			onDrugs += Time.deltaTime;
 			GetComponent<Rigidbody2D> ().transform.Rotate(new Vector3(0,0,5));
-		}
+            //Make raycast zero?
+        }
 	}
 
 	Vector2 raycastAngle(){
@@ -90,10 +110,12 @@ public class Nurse : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll){
 		if (coll.collider.tag == "Pills") {
-            Debug.Log("We go here");
+            //When reaching the pills
 			Destroy (coll.gameObject);
-            //Make nurse transparent
+            //Make nurse transparent and isDrugged true so she can't see anything
             colliders[0].isTrigger = true;
+            //Is drugged
+            isDrugged = true;
             state = states.DRUGGED;
 		}
 		if (coll.collider.tag == "Player") {

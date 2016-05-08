@@ -17,12 +17,11 @@ public class Nurse : MonoBehaviour {
 
 	//Audio
 	private AudioSource[] sources;
-	private float audioDelay = 0.6f; //This number might need to be tweaked. 
+	private float audioDelay = 0.4f; //This number might need to be tweaked. 
 	private float audioTimer;
 	private float volLowRange = .5f;
 	private float volHighRange = 1.0f;
 
-    //So that becomes blind when drugged
 
 	void Start(){
 		state = states.PATROL;
@@ -49,7 +48,6 @@ public class Nurse : MonoBehaviour {
 	}
    
 	void patrol() {
-        //Shouldn't go here if drugged
             hit = Physics2D.Raycast(transform.position, raycastAngle(), RAYCASTVIEW, LayerMask.GetMask("Player"));
             if (hit.collider != null)
             {
@@ -74,12 +72,14 @@ public class Nurse : MonoBehaviour {
         float z = Mathf.Atan2((following.position.y - transform.position.y), (following.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
         transform.eulerAngles = new Vector3(0, 0, z);
         GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * speed);
+		WalkSound ();
 	}
 
     void followPlayer(){
 		float z = Mathf.Atan2 ((player.transform.position.y - transform.position.y), (player.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
 		transform.eulerAngles = new Vector3 (0, 0, z);
 		GetComponent<Rigidbody2D>().AddForce (gameObject.transform.up * speed);
+		WalkSound ();
 	}
 
 	void highAsAKite(){

@@ -9,6 +9,8 @@ public class Nurse : MonoBehaviour {
 	public enum states {PATROL, PILLS, PLAYER, DRUGGED};
 	public states state;
 	public float onDrugs, drugPhase = 3f;
+	public AudioClip scream;
+	public AudioClip walk;
 	float RAYCASTVIEW = 30;
 	GameOverManager gameOverManager;
     private Collider2D[] colliders;

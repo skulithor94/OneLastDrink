@@ -34,8 +34,9 @@ public class Player : MonoBehaviour {
 		}
 
 		//Movement of player
-		transform.position += new Vector3 (0, Input.GetAxis ("Vertical"), 0) * speed * Time.deltaTime;
-		transform.position += new Vector3 (Input.GetAxis ("Horizontal"), 0, 0) * speed * Time.deltaTime;
+		//GetAxisRaw to get a value of -1, 0 or 1 so player snaps to full speed.
+		transform.position += new Vector3 (0, Input.GetAxisRaw ("Vertical"), 0).normalized * speed * Time.deltaTime;
+		transform.position += new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, 0).normalized * speed * Time.deltaTime;
 
 		//Audio
 		audioTimer += Time.deltaTime;

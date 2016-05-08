@@ -14,12 +14,21 @@ public class Nurse : MonoBehaviour {
 	float RAYCASTVIEW = 30;
 	GameOverManager gameOverManager;
     private Collider2D[] colliders;
+
+	//Audio
+	private AudioSource[] sources;
+	private float audioDelay = 0.6f; //This number might need to be tweaked. 
+	private float audioTimer;
+	private float volLowRange = .5f;
+	private float volHighRange = 1.0f;
+
     //So that becomes blind when drugged
 
 	void Start(){
 		state = states.PATROL;
 		gameOverManager = GameObject.FindGameObjectWithTag("GameOverManager").GetComponent<GameOverManager>();
         colliders = gameObject.GetComponents<Collider2D>();
+		sources = GetComponents<AudioSource> ();
 	}
 
 	void FixedUpdate(){
@@ -52,6 +61,7 @@ public class Nurse : MonoBehaviour {
                 else if (hit.collider.tag == "Player")
                 {
                     state = states.PLAYER;
+					Scream ();
                 }
             }
         
@@ -117,5 +127,27 @@ public class Nurse : MonoBehaviour {
 			following = coll.gameObject.transform;
 			state = states.PILLS;
 		}
+	}
+
+	//Plays the scream audio clip, which is in the second audio source
+	//at max volume.
+	void Scream(){
+		sources [1].PlayOneShot (scream, 1f);
+	}
+
+	//Play walking sound if the delay has passed. 
+	//There is a fluctuation in volume so that the sound doesn't become to bland.
+	void WalkSound(){
+		if(audioTimer >= audioDelay){
+			float vol = Random.Range (volLowRange, volHighRange);
+			audioTimer = 0f;
+			sources[0].PlayOneShot (walk, vol);
+		}
+	}
+
+	//Only used for audio. Might work in fixed update but because
+	//it's not physics I don't know.
+	void Update(){
+		audioTimer += Time.deltaTime;
 	}
 }

@@ -14,6 +14,7 @@ public class PlayerThrowing : MonoBehaviour {
 
 	void Start(){
 		source = GetComponents<AudioSource> ();
+
 	}
 	
 	// Update is called once per frame
@@ -24,6 +25,7 @@ public class PlayerThrowing : MonoBehaviour {
 			cooldownTimer = fireDelay;
 			Vector3 offset = transform.rotation * new Vector3 (0, 2.6f, 0);
 			Instantiate (pillBoxPrefab, transform.position + offset, transform.rotation);
+
 			pillBoxCount -= 1;
 
 			source [1].PlayOneShot (throwPill, 1f);

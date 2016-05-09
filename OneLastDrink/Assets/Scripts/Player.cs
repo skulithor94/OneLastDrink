@@ -62,4 +62,10 @@ public class Player : MonoBehaviour {
 			myLight.enabled = !myLight.enabled;
 		}
 	}
+	void OnCollisionEnter2D(Collision2D coll){
+		if (coll.collider.tag == "Pills") {
+			Destroy (coll.gameObject);
+			GetComponent<PlayerThrowing> ().pillBoxCount += 1;
+		}
+	}
 }

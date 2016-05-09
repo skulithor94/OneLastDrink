@@ -5,16 +5,19 @@ public class Player : MonoBehaviour {
 
 	//Speed of player, this value may change as development continues
 	private float speed = 15f;
-	private float audioDelay = 0.6f;
-	private float audioTimer;
-    private Light myLight;
+	private float RAYCASTVIEW = 500;
+	private Light myLight;
+	private RaycastHit2D hit;
 	private bool pause = false;
 
-	public AudioClip walk;
-
+	//Audio
 	private AudioSource[] source;
 	private float volLowRange = .5f;
-	private float volHighRange = 1.0f;
+	private float volHighRange = 1.0f;	
+	private float audioDelay = 0.6f;
+	private float audioTimer;
+	public AudioClip walk;
+
 
 	// Use this for initialization
 	void Start () {
@@ -59,22 +62,41 @@ public class Player : MonoBehaviour {
 
 	//All flashlight controls, such as raycast from player should go here.
 	void Flashlight(){
+		ToggleFlashlight ();
+		if (myLight.enabled) {
+			hit = Physics2D.Raycast(transform.position, raycastAngle(), RAYCASTVIEW, LayerMask.GetMask("Nurse"));
+			if (hit.collider != null) {
+				if (hit.collider.tag == "Nurse") {
+					hit.collider.GetComponent<Nurse> ().state = Nurse.states.PATROL;
+				}
+			}
+		}
+	}
+
+	void ToggleFlashlight(){
 		if(Input.GetKeyDown(KeyCode.F))
 		{
 			myLight.enabled = !myLight.enabled;
 		}
 	}
+
 	void OnCollisionEnter2D(Collision2D coll){
 		if (coll.collider.tag == "Pills") {
 			Destroy (coll.gameObject);
 			GetComponent<PlayerThrowing> ().pillBoxCount += 1;
 		}
 	}
+
 	public bool getPlayerPause(){
 		return pause;
 	}
 
 	public void setPlayerPause(bool pause){
 		this.pause = pause;
+	}
+
+	Vector2 raycastAngle(){
+		float radians = Mathf.Deg2Rad * (transform.eulerAngles.z + 90);
+		return new Vector2 (Mathf.Cos (radians), Mathf.Sin (radians));
 	}
 }

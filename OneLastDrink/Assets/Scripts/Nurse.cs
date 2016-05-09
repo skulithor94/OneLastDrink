@@ -71,7 +71,11 @@ public class Nurse : MonoBehaviour {
         if (hit.collider != null)
         {
             following = hit.transform.gameObject.transform;
-            if (hit.collider.tag == "Pills")
+            if(hit.collider.tag == "Wall")
+            {
+                return;
+            }
+            else if (hit.collider.tag == "Pills")
             {
                 state = states.PILLS;
             }

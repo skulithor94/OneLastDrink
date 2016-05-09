@@ -10,10 +10,12 @@ public class GameOverManager : MonoBehaviour {
 
 	float gameOverTimer;
 	Animator anim;
-	public Button GORetryButton;
+    public Image pillCountUI;
+    public Button GORetryButton;
 	public Button GOExitButton;
 	GameObject gameOverText;
 	GameObject player;
+    GameObject[] pills;
 	Nurse[] nurses;
 
 	// Use this for initialization
@@ -23,24 +25,29 @@ public class GameOverManager : MonoBehaviour {
 		gameOverText = GameObject.Find ("GameOverText");
 		gameOverText.SetActive (false);
 		player = GameObject.FindGameObjectWithTag ("Player");
-		nurses = GameObject.FindObjectsOfType<Nurse> ();
-		//Debug.Log (nurses);
+        nurses = GameObject.FindObjectsOfType<Nurse> ();
 	}
 	
 	// Update is called once per frame 
 	void Update () {
-
-	}
+    }
 
 	public void gameOver(){
 		anim.SetTrigger ("GameOver");
 		gameOverText.SetActive (true);
-
-		//Destroy the current player so that the lights go out.
-		Destroy (player);
+        pills = GameObject.FindGameObjectsWithTag("Pills");
+        //Destroy the current player so that the lights go out.
+        Destroy (player);
 		foreach (Nurse nurse in nurses) {
 			Destroy (nurse);
 		}
+        if(pills != null)
+        {
+            foreach(GameObject p in pills)
+            {
+                Destroy(p);
+            }
+        }
 	}
 
 	public void retry(){

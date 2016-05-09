@@ -10,8 +10,8 @@ public class Progress : MonoBehaviour {
 	//could be changed to seconds later
 	public Image flashlight;
 	public float flashlightSpeed;
-    private bool hasColorChanged;
-    public Image foregroundColor;
+    public Image warning;
+   // public Image foregroundColor;
 
     GameOverManager gameOverManager;
 
@@ -19,30 +19,25 @@ public class Progress : MonoBehaviour {
 	void Start () {
 		//Allows for interaction with gameOverManager functions
 		gameOverManager = GameObject.FindGameObjectWithTag("GameOverManager").GetComponent<GameOverManager>();
-        hasColorChanged = false;
-    }
+        warning.enabled = false;
+    } 
 	
 	// Update is called once per frame
 	void Update () {
-        /*if (flashlight.fillAmount < 0.4f & flashlight.fillAmount > 0f)
+        if (flashlight.fillAmount < 0.4f & flashlight.fillAmount > 0f)
         {
-            if (hasColorChanged == false)
-            {
-                Debug.Log("Time is running out");
-                foregroundColor = GameObject.Find("Foreground").GetComponent<Image>();
-
-                // Color red = new Color(255, 9, 0, 1);
-                //foregroundColor.material.color = Color.red;
-
-                Debug.Log(flashlight);
-                hasColorChanged = true;
-            }
-        }*/
+            //Disable the green flashlight
+            flashlight.enabled = false;
+            //Enable the warning flashlight
+            warning.enabled = true;
+        }
         //If the image's fill amount is 0 the game ends, if not the flashlight fill amount decreases.
         if (flashlight.fillAmount <= 0f) {
 			gameOverManager.gameOver ();
+            warning.enabled = false;
 		}else{	
 			flashlight.fillAmount -= flashlightSpeed * Time.deltaTime;
+            warning.fillAmount -= flashlightSpeed * Time.deltaTime;
 		}			
 	}
 		

@@ -13,6 +13,8 @@ TagManager:
   - Closet
   - Light
   - Nurse
+  - Exit
+  - Credit
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,7 @@ TagManager:
   - Nurse
   - Exit
   - Credit
+  - Warning
   layers:
   - Default
   - TransparentFX

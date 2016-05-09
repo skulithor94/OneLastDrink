@@ -5,7 +5,7 @@ public class Player : MonoBehaviour {
 
 	//Speed of player, this value may change as development continues
 	private float speed = 15f;
-	private float RAYCASTVIEW = 500;
+	private float RAYCASTVIEW = 10;
 	private Light myLight;
 	private RaycastHit2D hit;
 	private bool pause = false;
@@ -66,16 +66,17 @@ public class Player : MonoBehaviour {
 		if (myLight.enabled) {
 			hit = Physics2D.Raycast(transform.position, raycastAngle(), RAYCASTVIEW, LayerMask.GetMask("Nurse"));
 			if (hit.collider != null) {
-				if (hit.collider.tag == "Nurse") {
-					hit.collider.GetComponent<Nurse> ().state = Nurse.states.PATROL;
+				if (hit.collider.tag == "Wall") {
+					return;
+				}else if (hit.collider.tag == "Nurse") {
+					hit.collider.GetComponent<Nurse> ().state = Nurse.states.PLAYER;
 				}
 			}
 		}
 	}
 
 	void ToggleFlashlight(){
-		if(Input.GetKeyDown(KeyCode.F))
-		{
+		if(Input.GetKeyDown(KeyCode.F)){
 			myLight.enabled = !myLight.enabled;
 		}
 	}

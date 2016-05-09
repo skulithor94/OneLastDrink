@@ -242,12 +242,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   player: {fileID: 0}
-  following: {fileID: 0}
   state: 0
-  onDrugs: 0
-  drugPhase: 3
   scream: {fileID: 8300000, guid: 1426c5f73eee243cc8dbce8fdbac5628, type: 3}
   walk: {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
+  pathLength: 0
 --- !u!212 &21265330
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -494,7 +494,7 @@ Prefab:
     - target: {fileID: 11408206, guid: 06c0d5b97fe7c4686b4414abfc10c0d8, type: 2}
       propertyPath: pillCountUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1699572569}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06c0d5b97fe7c4686b4414abfc10c0d8, type: 2}
   m_IsPrefabParent: 0
@@ -635,7 +635,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1190659552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 187.5, y: 106.9, z: -10}
+  m_LocalPosition: {x: 157.1, y: 106.9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -812,3 +812,9 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 580e55d974f6f4a7dbd0a538d8df269f, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1699572569 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11498442, guid: 580e55d974f6f4a7dbd0a538d8df269f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1699572568}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}

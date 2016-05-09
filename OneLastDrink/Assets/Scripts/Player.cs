@@ -69,7 +69,7 @@ public class Player : MonoBehaviour {
 			Destroy (coll.gameObject);
 			GetComponent<PlayerThrowing> ().pillBoxCount += 1;
 		}
-
+	}
 	public bool getPlayerPause(){
 		return pause;
 	}

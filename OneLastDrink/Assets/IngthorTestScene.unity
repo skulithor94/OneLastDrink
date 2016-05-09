@@ -132,6 +132,10 @@ Prefab:
       propertyPath: GOExitButton
       value: 
       objectReference: {fileID: 104718808}
+    - target: {fileID: 11467180, guid: a63bbd7491d8f4218a9e5f9c9379ec59, type: 2}
+      propertyPath: pillCountUI
+      value: 
+      objectReference: {fileID: 1585166717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a63bbd7491d8f4218a9e5f9c9379ec59, type: 2}
   m_IsPrefabParent: 0

@@ -34,6 +34,7 @@ public class Progress : MonoBehaviour {
         //If the image's fill amount is 0 the game ends, if not the flashlight fill amount decreases.
         if (flashlight.fillAmount <= 0f) {
 			gameOverManager.gameOver ();
+            warning.enabled = false;
 		}else{	
 			flashlight.fillAmount -= flashlightSpeed * Time.deltaTime;
             warning.fillAmount -= flashlightSpeed * Time.deltaTime;

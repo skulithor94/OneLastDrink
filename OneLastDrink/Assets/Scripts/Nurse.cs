@@ -11,7 +11,7 @@ public class Nurse : MonoBehaviour {
 	public float onDrugs, drugPhase = 3f;
 	public AudioClip scream;
 	public AudioClip walk;
-	float RAYCASTVIEW = 30;
+	float RAYCASTVIEW = 15;
 	GameOverManager gameOverManager;
     private Collider2D[] colliders;
 

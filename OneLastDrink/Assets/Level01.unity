@@ -261,6 +261,10 @@ Prefab:
     - target: {fileID: 11422388, guid: cd003c1e533f64aa9ab8c060523b3e06, type: 2}
       propertyPath: flashlight
       value: 
+      objectReference: {fileID: 1207244729}
+    - target: {fileID: 11422388, guid: cd003c1e533f64aa9ab8c060523b3e06, type: 2}
+      propertyPath: warning
+      value: 
       objectReference: {fileID: 1062504173}
     - target: {fileID: 11422388, guid: cd003c1e533f64aa9ab8c060523b3e06, type: 2}
       propertyPath: flashlightSpeed
@@ -445,6 +449,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1062504172}
   m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &1207244729 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11443068, guid: 580e55d974f6f4a7dbd0a538d8df269f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1062504172}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1332322415
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,6 +487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 606706810}
+  smooting: 5
 --- !u!81 &1332322417
 AudioListener:
   m_ObjectHideFlags: 0

@@ -55,8 +55,8 @@ public class Nurse : MonoBehaviour {
    
 	void patrol() {
         hits[0] = Physics2D.Raycast(transform.position, raycastAngle(0f), RAYCASTVIEW, LayerMask.GetMask("Player"));
-        //hits[1] = Physics2D.Raycast(transform.position, raycastAngle(25f), RAYCASTVIEW, LayerMask.GetMask("Player"));
-        //hits[2] = Physics2D.Raycast(transform.position, raycastAngle(-25f), RAYCASTVIEW, LayerMask.GetMask("Player"));
+        hits[1] = Physics2D.Raycast(transform.position, raycastAngle(25f), RAYCASTVIEW, LayerMask.GetMask("Player"));
+        hits[2] = Physics2D.Raycast(transform.position, raycastAngle(-25f), RAYCASTVIEW, LayerMask.GetMask("Player"));
         hits[3] = Physics2D.Raycast(transform.position, raycastAngle(15f), RAYCASTVIEW, LayerMask.GetMask("Player"));
         hits[4] = Physics2D.Raycast(transform.position, raycastAngle(-15f), RAYCASTVIEW, LayerMask.GetMask("Player"));
         GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * patrolSpeed);

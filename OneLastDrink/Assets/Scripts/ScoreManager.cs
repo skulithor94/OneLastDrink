@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System;
 
@@ -6,6 +7,8 @@ public class ScoreManager : MonoBehaviour {
 
 	float score = 500f;
 	public float playerScore;
+	public string highscore;
+
 	Progress progressHandler;
 	GameController gameController;
 
@@ -21,6 +24,8 @@ public class ScoreManager : MonoBehaviour {
 		if (!gameController.playerWin) {
 			playerScore = score * progressHandler.flashlight.fillAmount;
 			playerScore = (float)Math.Floor (playerScore);
+		} else {
+			highscore = PlayerPrefs.GetString (SceneManager.GetActiveScene().name);
 		}
 	}
 }

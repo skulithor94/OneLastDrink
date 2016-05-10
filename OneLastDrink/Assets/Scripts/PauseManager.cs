@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour {
 
@@ -39,6 +40,10 @@ public class PauseManager : MonoBehaviour {
 		player.setPlayerPause (false);	
 		playerThrow.setPlayerPause (false);
 		panel.SetActive (false);
+	}
+
+	public void Exit(){
+		SceneManager.LoadScene("MainMenu");
 	}
 
 	public void SetSfxVol(float sfxLvl){

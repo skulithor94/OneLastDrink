@@ -64,7 +64,7 @@ public class Player : MonoBehaviour {
 	void Flashlight(){
 		ToggleFlashlight ();
 		if (myLight.enabled) {
-			hit = Physics2D.Raycast(transform.position, raycastAngle(), RAYCASTVIEW, LayerMask.GetMask("Nurse"));
+			hit = Physics2D.Raycast(transform.position, raycastAngle(), RAYCASTVIEW);
 			if (hit.collider != null) {
 				if (hit.collider.tag == "Wall") {
 					return;

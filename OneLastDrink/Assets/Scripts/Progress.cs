@@ -24,8 +24,9 @@ public class Progress : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (flashlight.fillAmount < 0.4f & flashlight.fillAmount > 0f)
-        {
+		if (flashlight.fillAmount >= 0.4f) {
+			flashlight.enabled = true;
+		}else if (flashlight.fillAmount < 0.4f && flashlight.fillAmount > 0f){
             //Disable the green flashlight
             flashlight.enabled = false;
             //Enable the warning flashlight

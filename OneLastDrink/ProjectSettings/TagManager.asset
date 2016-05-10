@@ -16,6 +16,9 @@ TagManager:
   - Exit
   - Credit
   - Warning
+  - ObjectiveBox
+  - LiveNurse
+  - ClosetImage
   layers:
   - Default
   - TransparentFX

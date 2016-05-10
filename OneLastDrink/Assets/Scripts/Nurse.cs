@@ -29,7 +29,6 @@ public class Nurse : MonoBehaviour {
 
 	void Start(){
 		state = states.PATROL;
-        Debug.Log(state);
         patrolSpeed = speed / 2;
         gameOverManager = GameObject.FindGameObjectWithTag("GameOverManager").GetComponent<GameOverManager>();
         colliders = gameObject.GetComponents<Collider2D>();
@@ -38,7 +37,6 @@ public class Nurse : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-        Debug.Log(state);
         switch (state) {
 		case states.PATROL:
             patrol();
@@ -56,7 +54,6 @@ public class Nurse : MonoBehaviour {
 	}
    
 	void patrol() {
-        Debug.Log("patrol");
         hits[0] = Physics2D.Raycast(transform.position, raycastAngle(0f), RAYCASTVIEW, LayerMask.GetMask("Player"));
         //hits[1] = Physics2D.Raycast(transform.position, raycastAngle(25f), RAYCASTVIEW, LayerMask.GetMask("Player"));
         //hits[2] = Physics2D.Raycast(transform.position, raycastAngle(-25f), RAYCASTVIEW, LayerMask.GetMask("Player"));
@@ -87,12 +84,10 @@ public class Nurse : MonoBehaviour {
                 if (hit.collider.tag == "Pills")
                 {
                     state = states.PILLS;
-                    Debug.Log(state);
                 }
                 else if (hit.collider.tag == "Player")
                 {
                     state = states.PLAYER;
-                    Debug.Log(state);
                     Scream();
                 }
                 following = hit.transform.gameObject.transform;
@@ -107,11 +102,9 @@ public class Nurse : MonoBehaviour {
         transform.eulerAngles = new Vector3(0, 0, z);
         GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * speed);
 		WalkSound ();
-        Debug.Log("followPills");
 	}
 
     void followPlayer(){
-        Debug.Log("followPlayer");
         float z = Mathf.Atan2 ((player.transform.position.y - transform.position.y), (player.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
 		transform.eulerAngles = new Vector3 (0, 0, z);
 		GetComponent<Rigidbody2D>().AddForce (gameObject.transform.up * speed);
@@ -119,19 +112,15 @@ public class Nurse : MonoBehaviour {
 	}
 
 	void highAsAKite(){
-        Debug.Log("highasakite");
         GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		if (onDrugs >= drugPhase) {
-            Debug.Log("no longer drugged");
             state = states.PATROL;
-            Debug.Log(state);
             onDrugs = 0f;
 			following = null;
             GetComponent<Rigidbody2D>().transform.eulerAngles = Vector3.forward;    //angularVelocity = 0f;
             confNurseColliders(true);
 		}
 		else if(onDrugs < drugPhase){
-            Debug.Log("ondrugs");
             confNurseColliders(false);
             onDrugs += Time.deltaTime;
 			GetComponent<Rigidbody2D> ().transform.Rotate(new Vector3(0,0,5));
@@ -156,7 +145,6 @@ public class Nurse : MonoBehaviour {
         {
             if (coll.collider.tag == "Wall")
             {
-                Debug.Log("wall collide");
                 walkTime = 0;
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 GetComponent<Rigidbody2D>().angularVelocity = 0f;
@@ -167,14 +155,11 @@ public class Nurse : MonoBehaviour {
         {
             if (coll.collider.tag == "Pills")
             {
-                Debug.Log("pill collide");
                 Destroy(coll.gameObject);
                 state = states.DRUGGED;
-                Debug.Log(state);
             }
             if (coll.collider.tag == "Player")
             {
-                Debug.Log("player collide");
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 gameOverManager.gameOver();
             }
@@ -183,10 +168,8 @@ public class Nurse : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D coll){
         if (coll.gameObject.tag == "Pills") {
-            Debug.Log("PILLSPILLSPILLSPILLSPILLSPILLSPILLSPILLS");
             following = coll.gameObject.transform;
             state = states.PILLS;
-            Debug.Log(state);
         }
 	}
 

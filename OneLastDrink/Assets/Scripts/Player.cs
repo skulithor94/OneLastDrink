@@ -69,7 +69,10 @@ public class Player : MonoBehaviour {
 				if (hit.collider.tag == "Wall") {
 					return;
 				}else if (hit.collider.tag == "Nurse") {
-					hit.collider.GetComponent<Nurse> ().state = Nurse.states.PLAYER;
+                    if (hit.collider.GetComponent<Nurse>().state == Nurse.states.PATROL)
+                    {
+                        hit.collider.GetComponent<Nurse>().state = Nurse.states.PLAYER;
+                    }
 				}
 			}
 		}

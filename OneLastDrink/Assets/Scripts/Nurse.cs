@@ -6,8 +6,8 @@ public class Nurse : MonoBehaviour {
 	public float speed;
     float patrolSpeed;
     public Transform player;
-    Transform following;
-	public RaycastHit2D hit;
+    public Transform following;
+	public RaycastHit2D[] hits;
 	public enum states {PATROL, PILLS, PLAYER, DRUGGED};
 	public states state;
 	float onDrugs, drugPhase = 3f;
@@ -33,10 +33,11 @@ public class Nurse : MonoBehaviour {
         gameOverManager = GameObject.FindGameObjectWithTag("GameOverManager").GetComponent<GameOverManager>();
         colliders = gameObject.GetComponents<Collider2D>();
 		sources = GetComponents<AudioSource> ();
+        hits = new RaycastHit2D[5];
 	}
 
 	void FixedUpdate(){
-		switch (state) {
+        switch (state) {
 		case states.PATROL:
             patrol();
 			break;
@@ -53,7 +54,11 @@ public class Nurse : MonoBehaviour {
 	}
    
 	void patrol() {
-        hit = Physics2D.Raycast(transform.position, raycastAngle(), RAYCASTVIEW, LayerMask.GetMask("Player"));
+        hits[0] = Physics2D.Raycast(transform.position, raycastAngle(0f), RAYCASTVIEW, LayerMask.GetMask("Player"));
+        //hits[1] = Physics2D.Raycast(transform.position, raycastAngle(25f), RAYCASTVIEW, LayerMask.GetMask("Player"));
+        //hits[2] = Physics2D.Raycast(transform.position, raycastAngle(-25f), RAYCASTVIEW, LayerMask.GetMask("Player"));
+        hits[3] = Physics2D.Raycast(transform.position, raycastAngle(15f), RAYCASTVIEW, LayerMask.GetMask("Player"));
+        hits[4] = Physics2D.Raycast(transform.position, raycastAngle(-15f), RAYCASTVIEW, LayerMask.GetMask("Player"));
         GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * patrolSpeed);
         GetComponent<Rigidbody2D>().angularVelocity = 0f;
         
@@ -68,21 +73,24 @@ public class Nurse : MonoBehaviour {
             walkTime += Time.deltaTime;
         }
 
-        if (hit.collider != null)
+        foreach (RaycastHit2D hit in hits)
         {
-            following = hit.transform.gameObject.transform;
-            if(hit.collider.tag == "Wall")
+            if (hit.collider != null)
             {
-                return;
-            }
-            else if (hit.collider.tag == "Pills")
-            {
-                state = states.PILLS;
-            }
-            else if (hit.collider.tag == "Player")
-            {
-                state = states.PLAYER;
-				Scream ();
+                if (hit.collider.tag == "Wall")
+                {
+                    return;
+                }
+                if (hit.collider.tag == "Pills")
+                {
+                    state = states.PILLS;
+                }
+                else if (hit.collider.tag == "Player")
+                {
+                    state = states.PLAYER;
+                    Scream();
+                }
+                following = hit.transform.gameObject.transform;
             }
         }
         
@@ -90,8 +98,6 @@ public class Nurse : MonoBehaviour {
 
     void followPills()
     {
-        //colliders[0].isTrigger = false;
-        //Doesn't follow the pill but returns to patrol state and sees nothing..
         float z = Mathf.Atan2((following.position.y - transform.position.y), (following.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
         transform.eulerAngles = new Vector3(0, 0, z);
         GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * speed);
@@ -99,20 +105,20 @@ public class Nurse : MonoBehaviour {
 	}
 
     void followPlayer(){
-		float z = Mathf.Atan2 ((player.transform.position.y - transform.position.y), (player.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
+        float z = Mathf.Atan2 ((player.transform.position.y - transform.position.y), (player.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
 		transform.eulerAngles = new Vector3 (0, 0, z);
 		GetComponent<Rigidbody2D>().AddForce (gameObject.transform.up * speed);
 		WalkSound ();
 	}
 
 	void highAsAKite(){
-		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		if (onDrugs >= drugPhase) {
-			onDrugs = 0f;
+            state = states.PATROL;
+            onDrugs = 0f;
 			following = null;
             GetComponent<Rigidbody2D>().transform.eulerAngles = Vector3.forward;    //angularVelocity = 0f;
             confNurseColliders(true);
-            state = states.PATROL;
 		}
 		else if(onDrugs < drugPhase){
             confNurseColliders(false);
@@ -129,13 +135,13 @@ public class Nurse : MonoBehaviour {
         }
     }
 
-	Vector2 raycastAngle(){
-		float radians = Mathf.Deg2Rad * (transform.eulerAngles.z + 90);
+	Vector2 raycastAngle(float offset){
+		float radians = Mathf.Deg2Rad * (transform.eulerAngles.z + 90 + offset);
 		return new Vector2 (Mathf.Cos (radians), Mathf.Sin (radians));
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
-        if(state == states.PATROL)
+        if (state == states.PATROL)
         {
             if (coll.collider.tag == "Wall")
             {
@@ -145,21 +151,26 @@ public class Nurse : MonoBehaviour {
                 GetComponent<Rigidbody2D>().transform.Rotate(new Vector3(0, 0, 180));
             }
         }
-		if (coll.collider.tag == "Pills") {
-			Destroy (coll.gameObject);
-            state = states.DRUGGED;
-		}
-		if (coll.collider.tag == "Player") {
-			GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
-			gameOverManager.gameOver ();
-		}
+        else
+        {
+            if (coll.collider.tag == "Pills")
+            {
+                Destroy(coll.gameObject);
+                state = states.DRUGGED;
+            }
+            if (coll.collider.tag == "Player")
+            {
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                gameOverManager.gameOver();
+            }
+        }
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){
-        following = coll.gameObject.transform;
         if (coll.gameObject.tag == "Pills") {
-			state = states.PILLS;
-		}
+            following = coll.gameObject.transform;
+            state = states.PILLS;
+        }
 	}
 
 	//Plays the scream audio clip, which is in the second audio source

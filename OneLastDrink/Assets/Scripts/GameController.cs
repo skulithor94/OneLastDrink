@@ -6,16 +6,17 @@ using System.Text;
 
 public class GameController : MonoBehaviour {
  
-    private int score;
+    private float score;
 	private GameObject player;
 	private GameObject canvasScore;
 	private GameObject nextLevelButton;
+	private ScoreManager scoreManager;
 	private Animator anim;
 	private string highscore;
 	private string scoreString;
 
 	public string scene;
-	public bool playerWin = false;
+	//public bool playerWin = false;
 
 	// Use this for initialization
 	void Start () { 
@@ -24,6 +25,7 @@ public class GameController : MonoBehaviour {
 		canvasScore = GameObject.Find ("Score");
 		nextLevelButton = GameObject.Find ("NextLevelButton");
 		anim = GameObject.Find("HUDCanvas").GetComponent<Animator> ();
+		scoreManager = GameObject.Find ("ScoreManager").GetComponent<ScoreManager> ();
 
 		canvasScore.SetActive (false);
 		nextLevelButton.SetActive (false); 
@@ -40,9 +42,11 @@ public class GameController : MonoBehaviour {
 	//go to the next level is activated and the player is destoyed to turn of the lights.
     public void nextLevel()
     {
-		playerWin = true;
+		//playerWin = true;
 		anim.SetTrigger ("NextLevel");
 		canvasScore.SetActive (true);
+
+		score = scoreManager.CalculateScore();
 
 		displayScore ();
 
@@ -53,10 +57,10 @@ public class GameController : MonoBehaviour {
 	//Function returns the score of the player and the highscore of the current level.
 	//It then converts the score into a character.
 	string returnScore(){
-		float score = GameObject.Find ("ScoreManager").GetComponent<ScoreManager> ().playerScore;
+		//float score = scoreManager.playerScore;
 		highscore = PlayerPrefs.GetString(SceneManager.GetActiveScene().name);
 
-		if (score <= 500f && score >= 400f) {
+		if ((score <= 500f && score >= 400f) || score > 500f) {
 			return "A";
 		} else if (score < 400f && score >= 300f) {
 			return "B";

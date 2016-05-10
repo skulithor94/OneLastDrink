@@ -13,17 +13,14 @@ public class ExitDoor : MonoBehaviour {
     }
     void Start()
     {
-        Debug.Log("We are here in ExitDoor");
+		
     }
     
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
         {
-            //WIN
             gameController.nextLevel();
-            //Progress to next level
-            Debug.Log("This works");
         } 
 
     }

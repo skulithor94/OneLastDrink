@@ -111,14 +111,15 @@ public class Tutorial : MonoBehaviour {
             inCloset.SetActive(false);
             Destroy(col.gameObject);
             //Destroy the current player so that the lights go out.
-            Destroy(player);
-            gameOverText.SetActive(true);
+            
+           
             gameOver();
         }
     }
     public void gameOver()
     {
         anim.SetTrigger("GameOver");
+        gameOverText.SetActive(true);
         startMessage.SetActive(false);
         throwPills.SetActive(false);
         pillThrown.SetActive(false);
@@ -126,6 +127,7 @@ public class Tutorial : MonoBehaviour {
         playerCaught.SetActive(false);
         closet.SetActive(false);
         inCloset.SetActive(false);
+        Destroy(player);
         pills = GameObject.FindGameObjectsWithTag("Pills");
         if (pills != null)
         {
@@ -136,13 +138,13 @@ public class Tutorial : MonoBehaviour {
         }
     }
 
-    public void retry()
+    public void retryTutorial()
     {
         Debug.Log("DO we go here");
         SceneManager.LoadScene("Tutorial");
     }
 
-    public void exit()
+    public void exitMainMenu()
     {
         Debug.Log("Do we go here");
         SceneManager.LoadScene("MainMenu");

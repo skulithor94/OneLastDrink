@@ -50,6 +50,7 @@ public class PauseManager : MonoBehaviour {
 	}
 
 	public void Exit(){
+		Unpause ();
 		SceneManager.LoadScene("MainMenu");
 	}
 		

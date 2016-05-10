@@ -112,13 +112,13 @@ public class Tutorial : MonoBehaviour {
             Destroy(col.gameObject);
             //Destroy the current player so that the lights go out.
             Destroy(player);
+            gameOverText.SetActive(true);
             gameOver();
         }
     }
     public void gameOver()
     {
         anim.SetTrigger("GameOver");
-        gameOverText.SetActive(true);
         startMessage.SetActive(false);
         throwPills.SetActive(false);
         pillThrown.SetActive(false);
@@ -146,5 +146,9 @@ public class Tutorial : MonoBehaviour {
     {
         Debug.Log("Do we go here");
         SceneManager.LoadScene("MainMenu");
+    }
+    public void Testing()
+    {
+        Debug.Log("TESTING");
     }
 }

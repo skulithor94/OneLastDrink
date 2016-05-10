@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/Level01.unity
   - enabled: 1
     path: Assets/LevelSelect.unity
+  - enabled: 1
+    path: Assets/Tutorial.unity

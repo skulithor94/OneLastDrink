@@ -153,11 +153,9 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'In this step you will encounter a nurse below you that will try to catch
-    you. She is patroling and she sees you if you shine your flashlight at her or
-    walk in her way.
+    you. The nurse sees you if you shine your flashlight at her or walk in her way.
 
-    If she catches you, you lose! You can try using the rest of the pills to distract
-    her.'
+'
 --- !u!222 &53740665
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -741,9 +739,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: Well done! This will disorient the nurse for three seconds in the game.
     In that three seconds she will become transparent and you will be able to pass
-    through her. If you miss you can walk to your pills and pick them up. If you throw
-    the pills in line of sight of the nurse she will follow the pills and pick them
-    up. To start the next step go to the red arrow below.
+    through her. To start the next step go to the red arrow below.
 --- !u!222 &817926657
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -927,7 +923,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &994011321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,7 +1825,7 @@ Prefab:
       objectReference: {fileID: 147691105}
     - target: {fileID: 11422388, guid: cd003c1e533f64aa9ab8c060523b3e06, type: 2}
       propertyPath: flashlightSpeed
-      value: 0.02
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd003c1e533f64aa9ab8c060523b3e06, type: 2}

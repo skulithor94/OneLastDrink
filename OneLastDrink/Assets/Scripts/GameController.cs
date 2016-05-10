@@ -2,14 +2,17 @@
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Text;
 
 public class GameController : MonoBehaviour {
  
     private int score;
-	GameObject player;
-	GameObject canvasScore;
-	GameObject nextLevelButton;
-	Animator anim;
+	private GameObject player;
+	private GameObject canvasScore;
+	private GameObject nextLevelButton;
+	private Animator anim;
+	private string highscore;
+	private string scoreString;
 
 	public string scene;
 	public bool playerWin = false;
@@ -24,6 +27,7 @@ public class GameController : MonoBehaviour {
 
 		canvasScore.SetActive (false);
 		nextLevelButton.SetActive (false); 
+
     }
 	
 	// Update is called once per frame
@@ -39,13 +43,18 @@ public class GameController : MonoBehaviour {
 		playerWin = true;
 		anim.SetTrigger ("NextLevel");
 		canvasScore.SetActive (true);
-		canvasScore.GetComponent<Text> ().text = "Score:" + returnScore ();
+
+		displayScore ();
+
 		nextLevelButton.SetActive (true);
 		Destroy (player);
     }
 
+	//Function returns the score of the player and the highscore of the current level.
+	//It then converts the score into a character.
 	string returnScore(){
 		float score = GameObject.Find ("ScoreManager").GetComponent<ScoreManager> ().playerScore;
+		highscore = PlayerPrefs.GetString(SceneManager.GetActiveScene().name);
 
 		if (score <= 500f && score >= 400f) {
 			return "A";
@@ -60,6 +69,19 @@ public class GameController : MonoBehaviour {
 		}else{
 			return "F";
 		}
+	}
+
+	//Sets the highscore for the level if there is none. If the current score is higher than the 
+	//current highscore then the highscore is updated.
+	void displayScore(){
+		scoreString = returnScore ();
+
+		if (highscore == "" || (int)scoreString[0] < (int)highscore[0]) {
+			PlayerPrefs.SetString (SceneManager.GetActiveScene().name, scoreString);
+			highscore = PlayerPrefs.GetString(SceneManager.GetActiveScene().name);
+		}
+
+		canvasScore.GetComponent<Text> ().text = "Score: " + scoreString + " Highscore: " + highscore;
 	}
 
 	//Load the next scene which is declared in the object as a public variable.

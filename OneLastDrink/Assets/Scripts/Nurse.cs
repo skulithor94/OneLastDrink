@@ -162,7 +162,7 @@ public class Nurse : MonoBehaviour {
             if (coll.collider.tag == "Player")
             {
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                gameOverManager.gameOver();
+    
             }
         }
 	}

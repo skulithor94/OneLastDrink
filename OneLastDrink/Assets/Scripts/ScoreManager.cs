@@ -9,23 +9,24 @@ public class ScoreManager : MonoBehaviour {
 	public float playerScore;
 	public string highscore;
 
-	Progress progressHandler;
-	GameController gameController;
+	private PlayerThrowing playerThrow;
+	private Progress progressHandler;
 
 	// Use this for initialization
 	void Start () {
 		progressHandler = GameObject.Find ("ProgressHandler").GetComponent<Progress>();
-		gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+		playerThrow = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerThrowing> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
-		//Calculate player score based on the amount of time left on the level.
-		if (!gameController.playerWin) {
-			playerScore = score * progressHandler.flashlight.fillAmount;
-			playerScore = (float)Math.Floor (playerScore);
-		} else {
-			highscore = PlayerPrefs.GetString (SceneManager.GetActiveScene().name);
-		}
+		
+	}
+
+	public float CalculateScore(){
+		playerScore = score * progressHandler.flashlight.fillAmount;
+		playerScore = (float)Math.Floor (playerScore);
+		playerScore += playerThrow.pillBoxCount * 10;
+		return playerScore;
 	}
 }

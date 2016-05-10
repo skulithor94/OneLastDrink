@@ -5,6 +5,13 @@ public class Player : MonoBehaviour {
 
 	//Speed of player, this value may change as development continues
 	private float speed = 15f;
+	public float Speed {
+		get{
+			return speed;
+		}set{
+			speed = value;
+		}
+	}
 	private float RAYCASTVIEW = 10;
 	private Light myLight;
 	private RaycastHit2D hit;

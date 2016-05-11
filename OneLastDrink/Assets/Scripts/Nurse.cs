@@ -61,18 +61,22 @@ public class Nurse : MonoBehaviour {
         hits[2] = Physics2D.Raycast(transform.position, raycastAngle(-25f), RAYCASTVIEW, mask);
         hits[3] = Physics2D.Raycast(transform.position, raycastAngle(15f), RAYCASTVIEW, mask);
         hits[4] = Physics2D.Raycast(transform.position, raycastAngle(-15f), RAYCASTVIEW, mask);
-        GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * patrolSpeed);
         GetComponent<Rigidbody2D>().angularVelocity = 0f;
-        
-        if (walkTime >= pathLength)
+
+        if (pathLength != 0)
         {
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            walkTime = 0;
-            GetComponent<Rigidbody2D>().transform.Rotate(new Vector3(0, 0, 180));
-        }
-        else
-        {
-            walkTime += Time.deltaTime;
+            GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * patrolSpeed);
+
+            if (walkTime >= pathLength)
+            {
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                walkTime = 0;
+                GetComponent<Rigidbody2D>().transform.Rotate(new Vector3(0, 0, 180));
+            }
+            else
+            {
+                walkTime += Time.deltaTime;
+            }
         }
 
         foreach (RaycastHit2D hit in hits)
@@ -154,17 +158,14 @@ public class Nurse : MonoBehaviour {
                 walkTime = 0;
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 GetComponent<Rigidbody2D>().angularVelocity = 0f;
-                if(pathLength != 0)
+                if (walkTime < (pathLength / 2))
                 {
-                    if (walkTime < (pathLength / 2))
-                    {
-                        GetComponent<Rigidbody2D>().transform.Rotate(new Vector3(0, 0, 90));
-                    }
-                    else
-                    {
-                        GetComponent<Rigidbody2D>().transform.Rotate(new Vector3(0, 0, 180));
-                    }
-                }   
+                    GetComponent<Rigidbody2D>().transform.Rotate(new Vector3(0, 0, 90));
+                }
+                else
+                {
+                    GetComponent<Rigidbody2D>().transform.Rotate(new Vector3(0, 0, 180));
+                }
             }
         }
         else

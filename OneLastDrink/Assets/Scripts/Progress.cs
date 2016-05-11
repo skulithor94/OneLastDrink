@@ -20,7 +20,10 @@ public class Progress : MonoBehaviour {
     void Start () {
 		//Allows for interaction with gameOverManager functions
 		gameOverManager = GameObject.FindGameObjectWithTag("GameOverManager").GetComponent<GameOverManager>();
-        tutorial = GameObject.FindGameObjectWithTag("Tutorial").GetComponent<Tutorial>();
+        if (GameObject.Find("HUDCanvas") == null)
+        {
+            tutorial = GameObject.FindGameObjectWithTag("Tutorial").GetComponent<Tutorial>();
+        }
         warning.enabled = false;
     } 
 	

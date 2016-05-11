@@ -39,68 +39,32 @@ public class Tutorial : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        //Need this on player
         if (coll.gameObject.tag == "ObjectiveBox")
         {
-            Debug.Log("Step 1");
-            //Making sure that only one text at a time is displayed
-            //Need to find a better way
-            startMessage.SetActive(false);
+            SetMessageToFalse();
             throwPills.SetActive(true);
-            pillThrown.SetActive(false);
-            nurseAttack.SetActive(false);
-            playerCaught.SetActive(false);
-            closet.SetActive(false);
-            inCloset.SetActive(false);
         }
-        //Need this on player
         if (coll.gameObject.tag == "Closet")
         {
-           // Debug.Log("Spuderman");
-            startMessage.SetActive(false);
-            throwPills.SetActive(false);
-            pillThrown.SetActive(false);
-            nurseAttack.SetActive(false);
-            playerCaught.SetActive(false);
-            closet.SetActive(false);
+            SetMessageToFalse();
             inCloset.SetActive(true);
         }
-        //Need this on player
         if (coll.gameObject.tag == "Pills")
         {
             Destroy(coll.gameObject);
-            Debug.Log("Step 2");
-            //Making sure that only one text at a time is displayed
-            //Need to find a better way
-            startMessage.SetActive(false);
-            throwPills.SetActive(false);
+            SetMessageToFalse();
             pillThrown.SetActive(true);
-            nurseAttack.SetActive(false);
-            playerCaught.SetActive(false);
-            closet.SetActive(false);
-            inCloset.SetActive(false);
+
         }
         if (coll.gameObject.tag == "Step3Tutorial")
         {
-            Debug.Log("Step3");
-            startMessage.SetActive(false);
-            throwPills.SetActive(false);
-            pillThrown.SetActive(false);
+            SetMessageToFalse();
             nurseAttack.SetActive(true);
-            playerCaught.SetActive(false);
-            closet.SetActive(false);
-            inCloset.SetActive(false);
-
         }
         if (coll.gameObject.tag == "ClosetImage")
         {
-            startMessage.SetActive(false);
-            throwPills.SetActive(false);
-            pillThrown.SetActive(false);
-            nurseAttack.SetActive(false);
-            playerCaught.SetActive(false);
+            SetMessageToFalse();
             closet.SetActive(true);
-            inCloset.SetActive(false);
 
         }
         if(coll.gameObject.tag == "Exit")
@@ -110,36 +74,20 @@ public class Tutorial : MonoBehaviour {
     }
     void OnCollisionEnter2D(Collision2D col)
     {
-        //When pills collide with nurses
-        //Need this on NurseImage nothing more
         if (col.collider.tag == "Nurse")
         {
             player = GameObject.Find("Player");
-            startMessage.SetActive(false);
-            throwPills.SetActive(false);
-            pillThrown.SetActive(false);
-            nurseAttack.SetActive(false);
-            playerCaught.SetActive(true);
-            closet.SetActive(false);
-            inCloset.SetActive(false);
+            SetMessageToFalse();
             Destroy(col.gameObject);
-            //Destroy the current player so that the lights go out.
             
-           
             gameOver();
         }
     }
     public void gameOver()
     {
         anim.SetTrigger("GameOver");
+        SetMessageToFalse();
         gameOverText.SetActive(true);
-        startMessage.SetActive(false);
-        throwPills.SetActive(false);
-        pillThrown.SetActive(false);
-        nurseAttack.SetActive(false);
-        playerCaught.SetActive(false);
-        closet.SetActive(false);
-        inCloset.SetActive(false);
         Destroy(player);
         pills = GameObject.FindGameObjectsWithTag("Pills");
         if (pills != null)
@@ -153,17 +101,11 @@ public class Tutorial : MonoBehaviour {
 
     public void retryTutorial()
     {
-        Debug.Log("DO we go here");
         SceneManager.LoadScene("Tutorial");
     }
 
     public void exitMainMenu()
     {
-        Debug.Log("Do we go here");
         SceneManager.LoadScene("MainMenu");
-    }
-    public void Testing()
-    {
-        Debug.Log("TESTING");
     }
 }

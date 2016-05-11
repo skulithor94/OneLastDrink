@@ -74,6 +74,7 @@ public class Player : MonoBehaviour {
             //all layers except the Player layer
             int mask = ~LayerMask.GetMask("Player");
 			hit = Physics2D.Raycast(transform.position, raycastAngle(), RAYCASTVIEW, mask);
+            Debug.Log(hit.collider.tag);
 			if (hit.collider != null) {
 				if (hit.collider.tag == "Wall") {
 					return;

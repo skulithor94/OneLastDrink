@@ -5,7 +5,7 @@ public class Nurse : MonoBehaviour {
 
 	public float speed;
     float patrolSpeed;
-    public Transform player;
+    private Transform player;
     public Transform following;
 	public RaycastHit2D[] hits;
 	public enum states {PATROL, PILLS, PLAYER, DRUGGED};
@@ -34,6 +34,7 @@ public class Nurse : MonoBehaviour {
         colliders = gameObject.GetComponents<Collider2D>();
 		sources = GetComponents<AudioSource> ();
         hits = new RaycastHit2D[5];
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 
 	void FixedUpdate(){
@@ -99,6 +100,10 @@ public class Nurse : MonoBehaviour {
 
     void followPills()
     {
+        if(following == null)
+        {
+            state = states.PATROL;
+        }
         float z = Mathf.Atan2((following.position.y - transform.position.y), (following.position.x - transform.position.x)) * Mathf.Rad2Deg - 90;
         transform.eulerAngles = new Vector3(0, 0, z);
         GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * speed);
@@ -149,7 +154,17 @@ public class Nurse : MonoBehaviour {
                 walkTime = 0;
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 GetComponent<Rigidbody2D>().angularVelocity = 0f;
-                GetComponent<Rigidbody2D>().transform.Rotate(new Vector3(0, 0, 180));
+                if(pathLength != 0)
+                {
+                    if (walkTime < (pathLength / 2))
+                    {
+                        GetComponent<Rigidbody2D>().transform.Rotate(new Vector3(0, 0, 90));
+                    }
+                    else
+                    {
+                        GetComponent<Rigidbody2D>().transform.Rotate(new Vector3(0, 0, 180));
+                    }
+                }   
             }
         }
         else
@@ -162,7 +177,7 @@ public class Nurse : MonoBehaviour {
             if (coll.collider.tag == "Player")
             {
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-    
+                gameOverManager.gameOver();
             }
         }
 	}

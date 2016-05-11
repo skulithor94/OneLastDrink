@@ -5,7 +5,7 @@ public class SpeedPowerUp : MonoBehaviour {
 
 	private Player player;
 	private float duration = 3f;
-	private float speedBoost = 10f;
+	private float speedBoost = 20f;
 
 	// Use this for initialization
 	void Start () {

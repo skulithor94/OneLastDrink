@@ -35,6 +35,7 @@ public class Nurse : MonoBehaviour {
 		sources = GetComponents<AudioSource> ();
         hits = new RaycastHit2D[5];
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
 	}
 
 	void FixedUpdate(){

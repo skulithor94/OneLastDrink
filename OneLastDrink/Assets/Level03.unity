@@ -132,6 +132,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 537169619}
+    - target: {fileID: 21202514, guid: 9d344fc1c35ac4152b228cf3361e6449, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 02503c04e9d054845b71082720d84b24,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d344fc1c35ac4152b228cf3361e6449, type: 2}
   m_IsPrefabParent: 0
@@ -559,7 +564,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
 --- !u!114 &1339465018 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11498442, guid: 580e55d974f6f4a7dbd0a538d8df269f,

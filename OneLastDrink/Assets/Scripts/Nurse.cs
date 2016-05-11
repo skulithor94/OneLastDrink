@@ -177,8 +177,16 @@ public class Nurse : MonoBehaviour {
             }
             if (coll.collider.tag == "Player")
             {
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                gameOverManager.gameOver();
+                //For the tutorial
+                if (GameObject.Find("HUDCanvas") == null)
+                {
+                    GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                }
+                else
+                {
+                    GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    gameOverManager.gameOver();
+                }
             }
         }
 	}

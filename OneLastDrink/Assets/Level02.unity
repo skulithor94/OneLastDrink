@@ -436,6 +436,14 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Exit
       objectReference: {fileID: 0}
+    - target: {fileID: 11407014, guid: 580e55d974f6f4a7dbd0a538d8df269f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1810732055}
+    - target: {fileID: 11407014, guid: 580e55d974f6f4a7dbd0a538d8df269f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: loadNextLevel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 580e55d974f6f4a7dbd0a538d8df269f, type: 2}
   m_IsPrefabParent: 0
@@ -597,7 +605,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!114 &1339465018 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11498442, guid: 580e55d974f6f4a7dbd0a538d8df269f,

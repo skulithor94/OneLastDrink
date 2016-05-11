@@ -17,8 +17,10 @@ TagManager:
   - Credit
   - Warning
   - ObjectiveBox
-  - LiveNurse
+  - Step3Tutorial
   - ClosetImage
+  - NurseImage
+  - Tutorial
   layers:
   - Default
   - TransparentFX

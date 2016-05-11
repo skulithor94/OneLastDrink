@@ -18,6 +18,12 @@ public class Tutorial : MonoBehaviour {
     // Use this for initialization
     void Start () {
         anim = GameObject.Find("TutorialCanvas").GetComponent<Animator>();
+        SetMessageToFalse();
+        startMessage.SetActive(true);
+    }
+    void SetMessageToFalse()
+    {
+        startMessage.SetActive(false);
         gameOverText.SetActive(false);
         throwPills.SetActive(false);
         pillThrown.SetActive(false);
@@ -26,7 +32,7 @@ public class Tutorial : MonoBehaviour {
         closet.SetActive(false);
         inCloset.SetActive(false);
     }
-	
+	//Hideall function
 	// Update is called once per frame
 	void Update () {
     }
@@ -36,6 +42,7 @@ public class Tutorial : MonoBehaviour {
         //Need this on player
         if (coll.gameObject.tag == "ObjectiveBox")
         {
+            Debug.Log("Step 1");
             //Making sure that only one text at a time is displayed
             //Need to find a better way
             startMessage.SetActive(false);
@@ -62,6 +69,7 @@ public class Tutorial : MonoBehaviour {
         if (coll.gameObject.tag == "Pills")
         {
             Destroy(coll.gameObject);
+            Debug.Log("Step 2");
             //Making sure that only one text at a time is displayed
             //Need to find a better way
             startMessage.SetActive(false);
@@ -72,8 +80,9 @@ public class Tutorial : MonoBehaviour {
             closet.SetActive(false);
             inCloset.SetActive(false);
         }
-        if (coll.gameObject.tag == "LiveNurse")
+        if (coll.gameObject.tag == "Step3Tutorial")
         {
+            Debug.Log("Step3");
             startMessage.SetActive(false);
             throwPills.SetActive(false);
             pillThrown.SetActive(false);
@@ -93,6 +102,10 @@ public class Tutorial : MonoBehaviour {
             closet.SetActive(true);
             inCloset.SetActive(false);
 
+        }
+        if(coll.gameObject.tag == "Exit")
+        {
+            SceneManager.LoadScene("MainMenu");
         }
     }
     void OnCollisionEnter2D(Collision2D col)

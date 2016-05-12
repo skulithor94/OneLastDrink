@@ -7,6 +7,8 @@ using System.Text;
 public class GameController : MonoBehaviour {
  
     private float score;
+	private GameObject[] nurses;
+	private GameObject[] pills;
 	private GameObject player;
 	private GameObject canvasScore;
 	private GameObject nextLevelButton;
@@ -26,6 +28,7 @@ public class GameController : MonoBehaviour {
 		nextLevelButton = GameObject.Find ("NextLevelButton");
 		anim = GameObject.Find("HUDCanvas").GetComponent<Animator> ();
 		scoreManager = GameObject.Find ("ScoreManager").GetComponent<ScoreManager> ();
+		nurses = GameObject.FindGameObjectsWithTag ("Nurse");
 
 		canvasScore.SetActive (false);
 		nextLevelButton.SetActive (false); 
@@ -42,7 +45,8 @@ public class GameController : MonoBehaviour {
 	//go to the next level is activated and the player is destoyed to turn of the lights.
     public void nextLevel()
     {
-		//playerWin = true;
+		pills = GameObject.FindGameObjectsWithTag("Pills");
+
 		anim.SetTrigger ("NextLevel");
 		canvasScore.SetActive (true);
 
@@ -52,6 +56,16 @@ public class GameController : MonoBehaviour {
 
 		nextLevelButton.SetActive (true);
 		Destroy (player);
+		foreach (GameObject nurse in nurses) {
+			Destroy (nurse);
+		}
+		if(pills != null)
+		{
+			foreach(GameObject p in pills)
+			{
+				Destroy(p);
+			}
+		}
     }
 
 	//Function returns the score of the player and the highscore of the current level.

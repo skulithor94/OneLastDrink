@@ -21,6 +21,7 @@ TagManager:
   - ClosetImage
   - NurseImage
   - Tutorial
+  - StartingPoint
   layers:
   - Default
   - TransparentFX

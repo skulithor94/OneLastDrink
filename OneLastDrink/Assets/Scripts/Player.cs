@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
 	private Light myLight;
 	private RaycastHit2D hit;
 	private bool pause = false;
+	private bool inCloset = false;
 
 	//Audio
 	private AudioSource[] source;
@@ -70,12 +71,11 @@ public class Player : MonoBehaviour {
 	//All flashlight controls, such as raycast from player should go here.
 	void Flashlight(){
 		ToggleFlashlight ();
-		if (myLight.enabled) {
+		if (myLight.enabled && !inCloset) {
             //all layers except the Player layer
             int mask = ~LayerMask.GetMask("Player");
 			hit = Physics2D.Raycast(transform.position, raycastAngle(), RAYCASTVIEW, mask);
 			if (hit.collider != null) {
-                Debug.Log(hit.collider.tag);
 				if (hit.collider.tag == "Wall" || hit.collider.tag == "Closet")  {
 					return;
 				}else if (hit.collider.tag == "Nurse") {
@@ -98,6 +98,18 @@ public class Player : MonoBehaviour {
 		if (coll.collider.tag == "Pills") {
 			Destroy (coll.gameObject);
 			GetComponent<PlayerThrowing> ().pillBoxCount += 1;
+		}
+	}
+
+	void OnTriggerEnter2D(Collider2D coll){
+		if (coll.gameObject.tag == "Closet") {
+			inCloset = true;
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D coll){
+		if (coll.gameObject.tag == "Closet") {
+			inCloset = false;
 		}
 	}
 

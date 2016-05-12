@@ -85,7 +85,7 @@ public class Nurse : MonoBehaviour {
             
             if (hit.collider != null)
             {
-                if (hit.collider.tag == "Wall")
+                if (hit.collider.tag == "Wall") 
                 {
                     return;
                 }

@@ -75,7 +75,8 @@ public class Player : MonoBehaviour {
             int mask = ~LayerMask.GetMask("Player");
 			hit = Physics2D.Raycast(transform.position, raycastAngle(), RAYCASTVIEW, mask);
 			if (hit.collider != null) {
-				if (hit.collider.tag == "Wall") {
+                Debug.Log(hit.collider.tag);
+				if (hit.collider.tag == "Wall" || hit.collider.tag == "Closet") {
 					return;
 				}else if (hit.collider.tag == "Nurse") {
                     if (hit.collider.GetComponent<Nurse>().state == Nurse.states.PATROL)

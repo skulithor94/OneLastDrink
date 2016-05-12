@@ -82,9 +82,14 @@ public class Nurse : MonoBehaviour {
 
         foreach (RaycastHit2D hit in hits)
         {
+            
             if (hit.collider != null)
             {
                 if (hit.collider.tag == "Wall")
+                {
+                    return;
+                }
+                if(hit.collider.tag == "Closet")
                 {
                     return;
                 }

@@ -25,7 +25,7 @@ public class SpeedPowerUp : MonoBehaviour {
 
 	IEnumerator SpeedUp(){
 		Destroy(gameObject.GetComponent<BoxCollider2D> ());
-		gameObject.GetComponent<SpriteRenderer> ().color = new Color(0f, 0f, 0f, 0f);
+		gameObject.GetComponent<SpriteRenderer> ().enabled = false;
 		player.Speed += speedBoost;
 		yield return new WaitForSeconds (duration);
 		player.Speed -= speedBoost;

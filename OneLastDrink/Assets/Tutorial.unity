@@ -3648,8 +3648,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Welcome! \nUse the WASD/Arrow keys to move and the mouse to view around
-    you. You can turn the flashligh on and off by pushing F. Move into the box marked
+  m_Text: "Welcome! \nUse the WASD/Arrow keys to move and the mouse to view around.
+    You can turn the flashligh on and off by pushing F. Move into the space marked
     with X to start the next step!"
 --- !u!222 &1624851353
 CanvasRenderer:

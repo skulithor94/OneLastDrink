@@ -5,8 +5,8 @@ AudioMixerController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: SoundEffects
-  m_OutputGroup: {fileID: 24370742, guid: 190a3e12268954e9da55a4ab84489119, type: 2}
+  m_Name: Enemies
+  m_OutputGroup: {fileID: 24350442, guid: fbbf369d69e0e41238809bde3a4b9856, type: 2}
   m_MasterGroup: {fileID: 24300001}
   m_Snapshots:
   - {fileID: 24500003}
@@ -16,10 +16,10 @@ AudioMixerController:
   m_ExposedParameters: []
   m_AudioMixerGroupViews:
   - guids:
-    - dc0be6c6aae714cfeaf34b752e66216b
-    - 4ddfcbf425a714ff099375decd3d599a
-    - 7519d21b21f9b427ba9daf73f823325f
-    - e704b16bd5ef148dea8de41a3de39ae0
+    - 323cbe9c05e354991be57815e840bb83
+    - 33961749587cd405eb7816898d131199
+    - b59b6b536409040799e5cd9e4ca065e2
+    - f51c5ff752de64c85b9637a97c5c59c6
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500003}
@@ -30,66 +30,66 @@ AudioMixerGroupController:
   m_PrefabInternal: {fileID: 0}
   m_Name: Master
   m_AudioMixer: {fileID: 24100000}
-  m_GroupID: dc0be6c6aae714cfeaf34b752e66216b
+  m_GroupID: 323cbe9c05e354991be57815e840bb83
   m_Children:
-  - {fileID: 24300500}
-  - {fileID: 24350442}
-  - {fileID: 24345618}
-  m_Volume: 29540f81e6ecd406b9e7776441488d76
-  m_Pitch: b48416654ea8f4b3b8bc76e51bcaa5ee
+  - {fileID: 24329284}
+  - {fileID: 24390274}
+  - {fileID: 24340852}
+  m_Volume: 20e48e91651d74948be794d08b960d5a
+  m_Pitch: 8f91ea9cd52fb4a75acaa98ccb6fb6c4
   m_Effects:
   - {fileID: 24400002}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
---- !u!243 &24300500
+--- !u!243 &24329284
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Player
+  m_Name: Run
   m_AudioMixer: {fileID: 24100000}
-  m_GroupID: 4ddfcbf425a714ff099375decd3d599a
+  m_GroupID: b59b6b536409040799e5cd9e4ca065e2
   m_Children: []
-  m_Volume: b0a5ca63aa313458aae31834f8f3f664
-  m_Pitch: 09cc55845131f4d9da6a8d39ec51befa
+  m_Volume: 489f2d13a290944df9a71a8b3d1ab91f
+  m_Pitch: 2e3d0e2d293fa4cdd99cc7c606fd317e
   m_Effects:
-  - {fileID: 24453226}
+  - {fileID: 24420274}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
---- !u!243 &24345618
+--- !u!243 &24340852
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Pills
+  m_Name: Drugged
   m_AudioMixer: {fileID: 24100000}
-  m_GroupID: e704b16bd5ef148dea8de41a3de39ae0
+  m_GroupID: f51c5ff752de64c85b9637a97c5c59c6
   m_Children: []
-  m_Volume: 32d7d95b989394975b3a9a02e8dc7046
-  m_Pitch: fda2e1f8055f34b91a0d8d66a9b6b1df
+  m_Volume: b81d64480e42b41608a3a0c4129a8773
+  m_Pitch: 4881734d4194648cbaa3c1eb97747af4
   m_Effects:
-  - {fileID: 24418398}
+  - {fileID: 24452918}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
---- !u!243 &24350442
+--- !u!243 &24390274
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Enemies
+  m_Name: Seen
   m_AudioMixer: {fileID: 24100000}
-  m_GroupID: 7519d21b21f9b427ba9daf73f823325f
+  m_GroupID: 33961749587cd405eb7816898d131199
   m_Children: []
-  m_Volume: 83a3eb7ef887d41de8ece53ae6ea388b
-  m_Pitch: b23b5df9aa8a1428ead4ebe76a3eaa43
+  m_Volume: 64654b8f6d1284f9cbb78704fc162358
+  m_Pitch: d6423b6c2ab694b60822210eff7b9f71
   m_Effects:
-  - {fileID: 24416724}
+  - {fileID: 24497440}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -100,48 +100,48 @@ AudioMixerEffectController:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_EffectID: cc67f6e25918f4572b1058362317b08e
+  m_EffectID: 4d9aee152dfd94fb9b9dc557ffa5922f
   m_EffectName: Attenuation
-  m_MixLevel: c9cda0e04bda7430da0d8d785bfe6658
+  m_MixLevel: 8fbe98810cdaf40ffa20c5c3774df662
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
---- !u!244 &24416724
+--- !u!244 &24420274
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_EffectID: 56502baf6762e447a8964b522b84c432
+  m_EffectID: f983281a5fd4a4e339c2fd307a916050
   m_EffectName: Attenuation
-  m_MixLevel: 020c898f387c54fbc8a182453aabef0d
+  m_MixLevel: ea25bb3962ae84bc2a8b8c1af6c44a8a
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
---- !u!244 &24418398
+--- !u!244 &24452918
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_EffectID: 09eb042a63e14448b94ffb0144b3ca32
+  m_EffectID: 92b40839c1e1243e495a7d9775d7e439
   m_EffectName: Attenuation
-  m_MixLevel: ed5fc7bae7ce14ca7a09cb21b30a10b4
+  m_MixLevel: b3f904e4b5a814dd884e4a202664b5b6
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
---- !u!244 &24453226
+--- !u!244 &24497440
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_EffectID: 11183191ee6ac4b62ae0667c1c34d4e6
+  m_EffectID: 58217bfe2c2724f8d9b701f81bbe9ca8
   m_EffectName: Attenuation
-  m_MixLevel: 1366efacf601d4127acc397c720958e3
+  m_MixLevel: 9e567a0e79aea4104a79714fc3f17171
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
@@ -153,16 +153,6 @@ AudioMixerSnapshotController:
   m_PrefabInternal: {fileID: 0}
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
-  m_SnapshotID: 2b64a8b9d645f415ca3de73813543c01
-  m_FloatValues:
-    ab3b7930a238549a5bc3fa7a5d719273: 1000
-    b7e5f8605c98c42c4832e59de77ce30f: -31.7
-    3f07d161a64604565a1bc64f30fdfea8: -5000
-    e79371b6293864baa9ce630f26523122: 600.4
-    40f22967f26524e10857646e85e6d7d1: 5000
-    8e9607297060d4844a1d57c015e35425: 1
-    20e5f7aa2d4474a62bd9f8e1acc8bbd5: 1
-    306174ddf5cfa4a0aa8c14133c9137b0: 0
-    85af65edcc8b44a959b31974e659cd43: 195.4
-    20acb72f344544d278d48f4dbc4b70b1: 2
+  m_SnapshotID: 28279db59c030485c90220d2c0697cc7
+  m_FloatValues: {}
   m_TransitionOverrides: {}

@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour {
 	private GameObject player;
 	private GameObject canvasScore;
 	private GameObject nextLevelButton;
-	private ScoreManager scoreManager;
+    private ScoreManager scoreManager;
 	private Animator anim;
 	private string highscore;
 	private string scoreString;
@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour {
 		nurses = GameObject.FindGameObjectsWithTag ("Nurse");
 
 		canvasScore.SetActive (false);
-		nextLevelButton.SetActive (false); 
+		nextLevelButton.SetActive (false);
 
     }
 	
@@ -55,7 +55,7 @@ public class GameController : MonoBehaviour {
 		displayScore ();
 
 		nextLevelButton.SetActive (true);
-		Destroy (player);
+        Destroy (player);
 		foreach (GameObject nurse in nurses) {
 			Destroy (nurse);
 		}

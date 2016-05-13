@@ -1708,6 +1708,62 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 817926654}
+--- !u!1 &876531519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 109110, guid: ec12776ca3518d740b48f037958886cc, type: 2}
+  m_PrefabInternal: {fileID: 1120827164}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 876531522}
+  - 61: {fileID: 876531521}
+  - 114: {fileID: 876531520}
+  m_Layer: 11
+  m_Name: closet
+  m_TagString: Closet
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &876531520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11410718, guid: ec12776ca3518d740b48f037958886cc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1120827164}
+  m_GameObject: {fileID: 876531519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97de93ea6e5e2a42aced6893d72965e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &876531521
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6199066, guid: ec12776ca3518d740b48f037958886cc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1120827164}
+  m_GameObject: {fileID: 876531519}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.478714, y: -0.10997009}
+  serializedVersion: 2
+  m_Size: {x: 5.542328, y: 5.601119}
+--- !u!4 &876531522
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 477754, guid: ec12776ca3518d740b48f037958886cc, type: 2}
+  m_PrefabInternal: {fileID: 1120827164}
+  m_GameObject: {fileID: 876531519}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 163.51, y: 86.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1 &892418768
 GameObject:
   m_ObjectHideFlags: 0
@@ -3730,7 +3786,7 @@ Prefab:
       objectReference: {fileID: 147691105}
     - target: {fileID: 11422388, guid: cd003c1e533f64aa9ab8c060523b3e06, type: 2}
       propertyPath: flashlightSpeed
-      value: 0.02
+      value: 0.002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd003c1e533f64aa9ab8c060523b3e06, type: 2}

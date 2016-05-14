@@ -16,6 +16,12 @@ TagManager:
   - Exit
   - Credit
   - Warning
+  - ObjectiveBox
+  - Step3Tutorial
+  - ClosetImage
+  - NurseImage
+  - Tutorial
+  - StartingPoint
   layers:
   - Default
   - TransparentFX
@@ -30,8 +36,8 @@ TagManager:
   - Nurse
   - Walls
   - Exit
-  - 
-  - 
+  - Pills
+  - PowerUps
   - Wallpaper
   - Main Menu
   - 

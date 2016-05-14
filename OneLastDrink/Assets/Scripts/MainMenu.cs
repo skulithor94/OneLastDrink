@@ -4,8 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
-	// Use this for initialization
-	public void LoadLevel()
+
+    // Use this for initialization
+    public void LoadLevel()
     {
         //Scene
         SceneManager.LoadScene("Level00");
@@ -15,6 +16,14 @@ public class MainMenu : MonoBehaviour {
 		//Scene
 		SceneManager.LoadScene("LevelSelect");
 	}
+    public void TutorialScene()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+    public void Highscore()
+    {
+        SceneManager.LoadScene("Highscore");
+    }
     public void Exit()
     {
         Application.Quit();

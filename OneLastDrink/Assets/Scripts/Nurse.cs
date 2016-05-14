@@ -11,7 +11,8 @@ public class Nurse : MonoBehaviour {
 	public enum states {PATROL, PILLS, PLAYER, DRUGGED};
 	public states state;
 	float onDrugs, drugPhase = 3f;
-	public AudioClip scream;
+	public AudioClip[] screams;
+	public AudioClip[] drugged;
 	public AudioClip walk;
 	float RAYCASTVIEW = 15;
 	GameOverManager gameOverManager;
@@ -178,6 +179,7 @@ public class Nurse : MonoBehaviour {
         {
             if (coll.collider.tag == "Pills")
             {
+				DrugSound ();
                 Destroy(coll.gameObject);
                 state = states.DRUGGED;
             }
@@ -207,7 +209,11 @@ public class Nurse : MonoBehaviour {
 	//Plays the scream audio clip, which is in the second audio source
 	//at max volume.
 	void Scream(){
-		sources [1].PlayOneShot (scream, 1f);
+		sources [1].PlayOneShot (screams[Random.Range(0,9)], 1f);
+	}
+
+	void DrugSound(){
+		sources [2].PlayOneShot (drugged [Random.Range (0, 3)], 1f);
 	}
 
 	//Play walking sound if the delay has passed. 

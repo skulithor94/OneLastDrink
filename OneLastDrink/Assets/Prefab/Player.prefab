@@ -72,8 +72,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171276}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
-  m_LocalPosition: {x: -51.1, y: -17.4, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071066, w: -0.70710695}
+  m_LocalPosition: {x: 217.2, y: -27.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 434986}
@@ -353,7 +353,6 @@ MonoBehaviour:
   pillBoxPrefab: {fileID: 135478, guid: 51e54d7bdbee1447195794622d0196f5, type: 2}
   pillBoxCount: 3
   fireDelay: 0.5
-  throwPill: {fileID: 8300000, guid: 1426c5f73eee243cc8dbce8fdbac5628, type: 3}
 --- !u!114 &11455156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -366,6 +365,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walk: {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
+  startSounds:
+  - {fileID: 8300000, guid: 5b9bd89df6ff547c9b9cca3462781967, type: 3}
+  - {fileID: 8300000, guid: d747d0a0115704d358be3806dba4805c, type: 3}
+  - {fileID: 8300000, guid: 9e0553d9730b1438ea59719aa93e47ff, type: 3}
+  - {fileID: 8300000, guid: eb98f82d7161f42d7abcbe6be24e42e2, type: 3}
+  - {fileID: 8300000, guid: a188858684c68458e981bfe2bbc83844, type: 3}
 --- !u!212 &21239070
 SpriteRenderer:
   m_ObjectHideFlags: 1

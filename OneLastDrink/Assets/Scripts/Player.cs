@@ -25,12 +25,14 @@ public class Player : MonoBehaviour {
 	private float audioDelay = 0.6f;
 	private float audioTimer;
 	public AudioClip walk;
+	public AudioClip[] startSounds;
 
 
 	// Use this for initialization
 	void Start () {
         myLight = GameObject.Find("PlayerSpotlight").GetComponentInChildren<Light>();
 		source = GetComponents<AudioSource> ();
+		source[1].PlayOneShot (startSounds[Random.Range (0, 4)], 1f);
     }
 
 	// Update is called once per frame

@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 473302}
   - 114: {fileID: 11467180}
+  - 82: {fileID: 8290304}
   m_Layer: 0
   m_Name: GameOverManager
   m_TagString: GameOverManager
@@ -28,6 +29,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!82 &8290304
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105954}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24316524, guid: 3b3aff8422933478dbe820828914502c,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &11467180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -40,8 +116,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverDelay: 3
+  pillCountUI: {fileID: 0}
   GORetryButton: {fileID: 0}
   GOExitButton: {fileID: 0}
+  sounds:
+  - {fileID: 8300000, guid: 403e74731f68f4e07a9fc0c3f600c3c3, type: 3}
+  - {fileID: 8300000, guid: cc3d38f7aa4bc4cf68674aea09ddac27, type: 3}
+  - {fileID: 8300000, guid: c7da0abf6f9884bb5aedbf4f8192d1c2, type: 3}
+  - {fileID: 8300000, guid: 33d538111d33848609d946d0108c6b78, type: 3}
+  - {fileID: 8300000, guid: d4510bb81c4c64d5c9e8c994a0e6814f, type: 3}
+  - {fileID: 8300000, guid: 56acda4088d9d444d8310f6c0e61afa6, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

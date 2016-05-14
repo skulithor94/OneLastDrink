@@ -13,6 +13,10 @@ public class GameOverManager : MonoBehaviour {
     public Image pillCountUI;
     public Button GORetryButton;
 	public Button GOExitButton;
+	public AudioClip[] sounds;
+
+	private AudioSource source;
+
 	GameObject gameOverText;
 	GameObject player;
     GameObject[] pills;
@@ -26,6 +30,7 @@ public class GameOverManager : MonoBehaviour {
 		gameOverText.SetActive (false);
 		player = GameObject.FindGameObjectWithTag ("Player");
 		nurses = GameObject.FindGameObjectsWithTag ("Nurse");
+		source = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame 
@@ -33,6 +38,7 @@ public class GameOverManager : MonoBehaviour {
     }
 
 	public void gameOver(){
+		source.PlayOneShot (sounds[Random.Range (0, 5)], 1f);
 		anim.SetTrigger ("GameOver");
 		gameOverText.SetActive (true);
         pills = GameObject.FindGameObjectsWithTag("Pills");

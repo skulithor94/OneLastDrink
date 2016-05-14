@@ -5,9 +5,17 @@ public class Battery : MonoBehaviour {
 
 	private Progress progress;
 
+	public AudioClip[] sounds;
+	private AudioSource source;
+	private BoxCollider2D bc;
+	private SpriteRenderer sr;
+
 	// Use this for initialization
 	void Start () {
 		progress = GameObject.Find ("ProgressHandler").GetComponent<Progress> ();
+		source = GetComponent<AudioSource> ();
+		bc = GetComponent<BoxCollider2D> ();
+		sr = GetComponent<SpriteRenderer> ();
 	}
 
 	// Update is called once per frame
@@ -22,7 +30,14 @@ public class Battery : MonoBehaviour {
 			} else {
 				progress.flashlight.fillAmount = 1f;
 			}
+			Debug.Log (coll.collider.tag);
+			BatterySound ();
+			bc.enabled = false;
+			sr.enabled = false;
 		}
-		Destroy (gameObject);
+	}
+
+	void BatterySound(){
+		source.PlayOneShot (sounds[Random.Range (0, 3)], 1f);
 	}
 }

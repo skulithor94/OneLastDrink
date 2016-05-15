@@ -30,7 +30,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194070}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: -0.00000016292068}
-  m_LocalPosition: {x: -4.4, y: -5.8, z: 0}
+  m_LocalPosition: {x: 168.8, y: 121.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,16 +93,16 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.2
   Loop: 0
   Mute: 0
   Spatialize: 0
-  Priority: 128
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 30
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -126,7 +126,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -166,18 +166,18 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24340852, guid: b51afa0f59cf949f1a590313fadac89f,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.2
   Loop: 0
   Mute: 0
   Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 30
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -201,7 +201,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -247,12 +247,12 @@ AudioSource:
   Loop: 0
   Mute: 0
   Spatialize: 0
-  Priority: 128
+  Priority: 100
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 30
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -276,7 +276,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -326,7 +326,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7415a2a93334a48cf907b0b176f80bab, type: 3}
   - {fileID: 8300000, guid: 47a65c3d6557547fcaa3f916c5014aa4, type: 3}
   - {fileID: 8300000, guid: 7bff16c9f66e640e2a20d1dd6199d930, type: 3}
-  - {fileID: 8300000, guid: 7c857f1ee14944f7b90236f586f98199, type: 3}
+  - {fileID: 8300000, guid: 7bff16c9f66e640e2a20d1dd6199d930, type: 3}
   - {fileID: 8300000, guid: acd6356f619b1491a80dbe72111f53d5, type: 3}
   - {fileID: 8300000, guid: f7234dd6bc8ac4946bcf990db5929476, type: 3}
   - {fileID: 8300000, guid: a345afe6ae31b496fb9dc27dbfeade6c, type: 3}

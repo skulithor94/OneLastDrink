@@ -54,6 +54,8 @@ AudioMixerGroupController:
   m_Pitch: 283a5fa65b08f4211924b9e631f8035b
   m_Effects:
   - {fileID: 24413846}
+  - {fileID: 24450166}
+  - {fileID: 24465272}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -71,8 +73,10 @@ AudioMixerGroupController:
   m_Pitch: b2d068e7f304e4ef783b51d4f6b8b430
   m_Effects:
   - {fileID: 24460428}
+  - {fileID: 24446402}
+  - {fileID: 24462320}
   m_UserColorIndex: 0
-  m_Mute: 0
+  m_Mute: 1
   m_Solo: 0
   m_BypassEffects: 0
 --- !u!244 &24400002
@@ -101,6 +105,42 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &24446402
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 197c12af2ffce4749b0cc6c6c0e7ca7e
+  m_EffectName: Lowpass
+  m_MixLevel: 8cce5f9e812c34e0fa62d5c3b5cf6c8c
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: 363427440ad2f491c81020017f3bfaa6
+  - m_ParameterName: Resonance
+    m_GUID: 9a88fdce90a0544759c996d9a49703e1
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &24450166
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: b6e234bade40c45dd94d7cc95ef1751e
+  m_EffectName: ParamEQ
+  m_MixLevel: b434890ecf35c4c48af8bbf5620a6045
+  m_Parameters:
+  - m_ParameterName: Center freq
+    m_GUID: e1e512d9b09d34923a2d80eb9241f132
+  - m_ParameterName: Octave range
+    m_GUID: 7d7e423926c4546348474ec3c13b6e31
+  - m_ParameterName: Frequency gain
+    m_GUID: f93b0613683d544f7b95cec81dbdd9fc
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &24460428
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -114,6 +154,56 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &24462320
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: f3826696d879d4a42a8ecff89d5937c9
+  m_EffectName: Compressor
+  m_MixLevel: 6e7afcf204c674a6aa97766560f34f9d
+  m_Parameters:
+  - m_ParameterName: Threshold
+    m_GUID: 3138e84029a254b6b877a14a7addf744
+  - m_ParameterName: Attack
+    m_GUID: 8c4cd48e237a64dbfa6e724fe4913bda
+  - m_ParameterName: Release
+    m_GUID: 2711bca24112048c4985c8f2a5f93940
+  - m_ParameterName: Make up gain
+    m_GUID: 74859d6443a6e4a30a254cfcc4c4c0a0
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &24465272
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: aa785c739aeda41d6a1846b5e5a3d7e5
+  m_EffectName: Chorus
+  m_MixLevel: e008013b79cad41b0884c85e4c48ff85
+  m_Parameters:
+  - m_ParameterName: Dry mix
+    m_GUID: 91839c66062c94537b2b213b0593e575
+  - m_ParameterName: Wet mix tap 1
+    m_GUID: 44dbd875ce25b448d958454a67d16b97
+  - m_ParameterName: Wet mix tap 2
+    m_GUID: 491662da81ed6430680f68266bbac481
+  - m_ParameterName: Wet mix tap 3
+    m_GUID: e31e0be7e85e54fd6bffc046daba95ef
+  - m_ParameterName: Delay
+    m_GUID: 47908f51020a6498fa30f7c3b8941865
+  - m_ParameterName: Rate
+    m_GUID: 4940fd2a74b91485f942979ab57e2838
+  - m_ParameterName: Depth
+    m_GUID: 7a166bf0e96c54c07a9132b0da36a0f2
+  - m_ParameterName: Feedback
+    m_GUID: 65f1e4b8a9d2b4cd5bad44ddcfc261a5
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 1
 --- !u!245 &24500003
 AudioMixerSnapshotController:
   m_ObjectHideFlags: 0
@@ -122,5 +212,10 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: e7e7df85121d042718b90ee892096ee0
-  m_FloatValues: {}
+  m_FloatValues:
+    f93b0613683d544f7b95cec81dbdd9fc: 0.53
+    363427440ad2f491c81020017f3bfaa6: 3000
+    8c4cd48e237a64dbfa6e724fe4913bda: 20
+    91992beff97944b5db0eda4d9dc4415e: -4.9356413
+    da66feef68d094528b8d0b69523d2f57: -4.9356413
   m_TransitionOverrides: {}

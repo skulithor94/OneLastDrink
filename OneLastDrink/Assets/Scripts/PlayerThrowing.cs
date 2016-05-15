@@ -9,13 +9,9 @@ public class PlayerThrowing : MonoBehaviour {
 	public float fireDelay = 0.5f;
 	float cooldownTimer = 0;
 
-	public AudioClip throwPill;
-	private AudioSource[] source;
 	private bool pause = false;
 
 	void Start(){
-		source = GetComponents<AudioSource> ();
-
 	}
 	
 	// Update is called once per frame
@@ -23,13 +19,10 @@ public class PlayerThrowing : MonoBehaviour {
 		if (!pause) {
 			cooldownTimer -= Time.deltaTime;
 			if (Input.GetButton ("Fire1") && cooldownTimer <= 0 && 0 < pillBoxCount) {
-				//Debug.Log ("wow");
 				cooldownTimer = fireDelay;
 				Vector3 offset = transform.rotation * new Vector3 (0, 2.6f, 0);
 				Instantiate (pillBoxPrefab, transform.position + offset, transform.rotation);
 				pillBoxCount -= 1;
-
-				source [1].PlayOneShot (throwPill, 1f);
 			}	
 		}
 	}

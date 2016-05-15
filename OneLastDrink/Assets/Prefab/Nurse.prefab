@@ -90,7 +90,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24390274, guid: b51afa0f59cf949f1a590313fadac89f,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 1426c5f73eee243cc8dbce8fdbac5628, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -319,7 +319,22 @@ MonoBehaviour:
   speed: 25
   following: {fileID: 0}
   state: 0
-  scream: {fileID: 8300000, guid: 1426c5f73eee243cc8dbce8fdbac5628, type: 3}
+  screams:
+  - {fileID: 8300000, guid: b0d117bacc9be418b8febb74b2cbe45c, type: 3}
+  - {fileID: 8300000, guid: 4b59e1971d00f47febf90ffedccd72cf, type: 3}
+  - {fileID: 8300000, guid: 3fa530e81d1ad46b7a700a66b72d2ef7, type: 3}
+  - {fileID: 8300000, guid: 7415a2a93334a48cf907b0b176f80bab, type: 3}
+  - {fileID: 8300000, guid: 47a65c3d6557547fcaa3f916c5014aa4, type: 3}
+  - {fileID: 8300000, guid: 7bff16c9f66e640e2a20d1dd6199d930, type: 3}
+  - {fileID: 8300000, guid: 7c857f1ee14944f7b90236f586f98199, type: 3}
+  - {fileID: 8300000, guid: acd6356f619b1491a80dbe72111f53d5, type: 3}
+  - {fileID: 8300000, guid: f7234dd6bc8ac4946bcf990db5929476, type: 3}
+  - {fileID: 8300000, guid: a345afe6ae31b496fb9dc27dbfeade6c, type: 3}
+  drugged:
+  - {fileID: 8300000, guid: 561d5f5b2201b435d8ecc3d30a5ee5cf, type: 3}
+  - {fileID: 8300000, guid: c8c53e54e8b754a30aaabeb1c09162e0, type: 3}
+  - {fileID: 8300000, guid: 581730274be9b4f91a1adfb7ed7bb57a, type: 3}
+  - {fileID: 8300000, guid: f64ccd4cb119d4eb6acd4287b4e33761, type: 3}
   walk: {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
   pathLength: 0
 --- !u!212 &21265330

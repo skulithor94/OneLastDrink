@@ -16,7 +16,9 @@ public class GameController : MonoBehaviour {
 	private Animator anim;
 	private string highscore;
 	private string scoreString;
+	private AudioSource source;
 
+	public AudioClip[] sounds;
 	public string scene;
 	//public bool playerWin = false;
 
@@ -33,6 +35,8 @@ public class GameController : MonoBehaviour {
 		canvasScore.SetActive (false);
 		nextLevelButton.SetActive (false);
 
+		source = GetComponent<AudioSource> ();
+
     }
 	
 	// Update is called once per frame
@@ -45,6 +49,8 @@ public class GameController : MonoBehaviour {
 	//go to the next level is activated and the player is destoyed to turn of the lights.
     public void nextLevel()
     {
+		source.PlayOneShot (sounds[Random.Range (0, 4)], 1f);
+
 		pills = GameObject.FindGameObjectsWithTag("Pills");
 
 		anim.SetTrigger ("NextLevel");

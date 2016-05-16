@@ -285,8 +285,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30.8, y: -23.8}
-  m_SizeDelta: {x: 480, y: 130}
+  m_AnchoredPosition: {x: 5.1, y: -15.2}
+  m_SizeDelta: {x: 462, y: 78.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &53740664
 MonoBehaviour:
@@ -320,9 +320,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Below is a live nurse. The nurse sees you if you shine \nthe flashlight
-    at her or walk in her way. \nYou can win the level by entering the Exit door which
-    is\nmarked green.\n"
+  m_Text: 'Below is a live nurse. You can win the level by entering the exit. Follow
+    the red arrow to win.
+
+'
 --- !u!222 &53740665
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1084,6 +1085,7 @@ MonoBehaviour:
   nurseAttack: {fileID: 1560264025}
   closet: {fileID: 1954709329}
   inCloset: {fileID: 1889284049}
+  instructions: {fileID: 0}
   gameOverText: {fileID: 1882765433}
 --- !u!1 &423758049
 GameObject:
@@ -1188,6 +1190,7 @@ MonoBehaviour:
   nurseAttack: {fileID: 1560264025}
   closet: {fileID: 1954709329}
   inCloset: {fileID: 1889284049}
+  instructions: {fileID: 0}
   gameOverText: {fileID: 1882765433}
 --- !u!212 &436855944
 SpriteRenderer:
@@ -1449,11 +1452,11 @@ RectTransform:
   m_Children:
   - {fileID: 918994959}
   m_Father: {fileID: 1004002561}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: -84}
-  m_SizeDelta: {x: 370, y: 76.88}
+  m_AnchoredPosition: {x: -70, y: -79.78}
+  m_SizeDelta: {x: 370, y: 68.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &596472232
 MonoBehaviour:
@@ -1665,8 +1668,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.13, y: -35.3}
-  m_SizeDelta: {x: 380, y: 140}
+  m_AnchoredPosition: {x: -3.8, y: -7.1}
+  m_SizeDelta: {x: 356, y: 51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &817926656
 MonoBehaviour:
@@ -1700,8 +1703,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Well done! This will disorient the nurse for three seconds in the game.
-    She is now transparent. To start the next step go to the red arrow below.
+  m_Text: Well done! To start the next step go to the red arrow below.
 --- !u!222 &817926657
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1865,8 +1867,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.27, y: -21.98}
-  m_SizeDelta: {x: 350, y: 100}
+  m_AnchoredPosition: {x: 0, y: -5.6100006}
+  m_SizeDelta: {x: 345, y: 57.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &918994960
 MonoBehaviour:
@@ -1901,7 +1903,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Next walk forward until you see the nurse. Left click the mouse to throw
-    pills. When the flashlight in the corner runs out you lose!
+    pills.
 --- !u!222 &918994961
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2332,13 +2334,13 @@ RectTransform:
   - {fileID: 147691104}
   - {fileID: 1965597471}
   - {fileID: 1769783586}
+  - {fileID: 1954709330}
+  - {fileID: 1889284050}
+  - {fileID: 1959057277}
   - {fileID: 1601991980}
   - {fileID: 596472231}
   - {fileID: 2049202519}
   - {fileID: 1560264026}
-  - {fileID: 1954709330}
-  - {fileID: 1889284050}
-  - {fileID: 1959057277}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
@@ -2879,6 +2881,7 @@ MonoBehaviour:
   nurseAttack: {fileID: 1560264025}
   closet: {fileID: 1954709329}
   inCloset: {fileID: 1889284049}
+  instructions: {fileID: 0}
   gameOverText: {fileID: 1882765433}
 --- !u!1 &1334005888
 GameObject:
@@ -3087,6 +3090,7 @@ MonoBehaviour:
   nurseAttack: {fileID: 1560264025}
   closet: {fileID: 1954709329}
   inCloset: {fileID: 1889284049}
+  instructions: {fileID: 0}
   gameOverText: {fileID: 1882765433}
 --- !u!4 &1428078891
 Transform:
@@ -3475,11 +3479,11 @@ RectTransform:
   m_Children:
   - {fileID: 53740663}
   m_Father: {fileID: 1004002561}
-  m_RootOrder: 8
+  m_RootOrder: 11
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: -84}
-  m_SizeDelta: {x: 430, y: 90}
+  m_AnchoredPosition: {x: -55, y: -70}
+  m_SizeDelta: {x: 461, y: 63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1560264027
 MonoBehaviour:
@@ -3543,11 +3547,11 @@ RectTransform:
   m_Children:
   - {fileID: 1624851351}
   m_Father: {fileID: 1004002561}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: -90.64}
-  m_SizeDelta: {x: 370, y: 120}
+  m_AnchoredPosition: {x: -70, y: -85}
+  m_SizeDelta: {x: 370, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1601991981
 MonoBehaviour:
@@ -3613,7 +3617,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.64, y: -10.17}
+  m_AnchoredPosition: {x: 7, y: -19}
   m_SizeDelta: {x: 370, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624851352
@@ -3649,8 +3653,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Welcome! \nUse the WASD/Arrow keys to move and the mouse to view around.
-    You can turn the flashligh on and off by pushing F. Move into the space marked
-    with X to start the next step!"
+    Step into the X to begin the next step."
 --- !u!222 &1624851353
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4260,7 +4263,7 @@ RectTransform:
   m_Children:
   - {fileID: 2037584362}
   m_Father: {fileID: 1004002561}
-  m_RootOrder: 10
+  m_RootOrder: 6
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -70, y: -84}
@@ -4516,7 +4519,7 @@ RectTransform:
   m_Children:
   - {fileID: 1220264714}
   m_Father: {fileID: 1004002561}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -70, y: -84}
@@ -4588,7 +4591,7 @@ RectTransform:
   - {fileID: 580360864}
   - {fileID: 1705598064}
   m_Father: {fileID: 1004002561}
-  m_RootOrder: 11
+  m_RootOrder: 7
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4948,11 +4951,11 @@ RectTransform:
   m_Children:
   - {fileID: 817926655}
   m_Father: {fileID: 1004002561}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: -84.22}
-  m_SizeDelta: {x: 370, y: 80}
+  m_AnchoredPosition: {x: -70, y: -69}
+  m_SizeDelta: {x: 370, y: 49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2049202520
 MonoBehaviour:

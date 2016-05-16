@@ -11,6 +11,8 @@ public class HighscoreScene : MonoBehaviour {
     public Text Level03;
     public Text Level04;
     public Text Level05;
+    public Text Level06;
+    public Text Level07;
 
     private string highscoreLevel00;
     private string highscoreLevel01;
@@ -18,6 +20,8 @@ public class HighscoreScene : MonoBehaviour {
     private string highscoreLevel03;
     private string highscoreLevel04;
     private string highscoreLevel05;
+    private string highscoreLevel06;
+    private string highscoreLevel07;
 
     // Use this for initialization
     void Start () {
@@ -29,6 +33,8 @@ public class HighscoreScene : MonoBehaviour {
         highscoreLevel03 = PlayerPrefs.GetString("Level03");
         highscoreLevel04 = PlayerPrefs.GetString("Level04");
         highscoreLevel05 = PlayerPrefs.GetString("Level05");
+        highscoreLevel06 = PlayerPrefs.GetString("Level06");
+        highscoreLevel07 = PlayerPrefs.GetString("Level07");
 
         //Set the text with the highscore
         Level00.text = highscoreLevel00;
@@ -37,6 +43,8 @@ public class HighscoreScene : MonoBehaviour {
         Level03.text = highscoreLevel03;
         Level04.text = highscoreLevel04;
         Level05.text = highscoreLevel05;
+        Level06.text = highscoreLevel06;
+        Level07.text = highscoreLevel07;
     }
 	
 	// Update is called once per frame

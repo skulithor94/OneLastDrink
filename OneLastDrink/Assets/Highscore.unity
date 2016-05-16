@@ -374,6 +374,8 @@ MonoBehaviour:
   Level03: {fileID: 1859157592}
   Level04: {fileID: 446978476}
   Level05: {fileID: 2105615316}
+  Level06: {fileID: 969412530}
+  Level07: {fileID: 1622105254}
 --- !u!1 &332753244
 GameObject:
   m_ObjectHideFlags: 0

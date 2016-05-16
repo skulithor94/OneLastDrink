@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour {
 	private string highscore;
 	private string scoreString;
 	private AudioSource source;
+	private Progress progressHandler;
 
 	public AudioClip[] sounds;
 	public string scene;
@@ -31,6 +32,7 @@ public class GameController : MonoBehaviour {
 		anim = GameObject.Find("HUDCanvas").GetComponent<Animator> ();
 		scoreManager = GameObject.Find ("ScoreManager").GetComponent<ScoreManager> ();
 		nurses = GameObject.FindGameObjectsWithTag ("Nurse");
+		progressHandler = GameObject.Find ("ProgressHandler").GetComponent<Progress>();
 
 		canvasScore.SetActive (false);
 		nextLevelButton.SetActive (false);
@@ -49,6 +51,7 @@ public class GameController : MonoBehaviour {
 	//go to the next level is activated and the player is destoyed to turn of the lights.
     public void nextLevel()
     {
+		progressHandler.flashlightSpeed = 0f;
 		source.PlayOneShot (sounds[Random.Range (0, 4)], 1f);
 
 		pills = GameObject.FindGameObjectsWithTag("Pills");

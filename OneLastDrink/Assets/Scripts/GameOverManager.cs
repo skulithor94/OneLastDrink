@@ -16,11 +16,13 @@ public class GameOverManager : MonoBehaviour {
 	public AudioClip[] sounds;
 
 	private AudioSource source;
+	private bool soundCheck = false;
 
 	GameObject gameOverText;
 	GameObject player;
     GameObject[] pills;
 	GameObject[] nurses;
+
 
 	// Use this for initialization
 	void Start () {
@@ -38,7 +40,10 @@ public class GameOverManager : MonoBehaviour {
     }
 
 	public void gameOver(){
-		source.PlayOneShot (sounds[Random.Range (0, 5)], 1f);
+		if (!soundCheck) {
+			source.PlayOneShot (sounds [Random.Range (0, 5)], 1f);
+			soundCheck = true;
+		}
 		anim.SetTrigger ("GameOver");
 		gameOverText.SetActive (true);
         pills = GameObject.FindGameObjectsWithTag("Pills");

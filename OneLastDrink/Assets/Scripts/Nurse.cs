@@ -111,7 +111,7 @@ public class Nurse : MonoBehaviour {
 
     void followPills()
     {
-        if(following == null)
+		if(following == null)
         {
             state = states.PATROL;
         }

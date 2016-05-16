@@ -33,3 +33,5 @@ EditorBuildSettings:
     path: Assets/StoryScene.unity
   - enabled: 1
     path: Assets/EndScene.unity
+  - enabled: 1
+    path: Assets/Level06.unity

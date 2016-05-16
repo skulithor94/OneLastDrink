@@ -208,7 +208,7 @@ public class Nurse : MonoBehaviour {
 
 	//Plays the scream audio clip, which is in the second audio source
 	//at max volume.
-	void Scream(){
+	public void Scream(){
 		sources [1].PlayOneShot (screams[Random.Range(0,9)], 1f);
 	}
 

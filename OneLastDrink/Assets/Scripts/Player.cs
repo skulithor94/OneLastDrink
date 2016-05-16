@@ -84,6 +84,7 @@ public class Player : MonoBehaviour {
                     if (hit.collider.GetComponent<Nurse>().state == Nurse.states.PATROL)
                     {
                         hit.collider.GetComponent<Nurse>().state = Nurse.states.PLAYER;
+                        hit.collider.GetComponent<Nurse>().Scream();
                     }
 				}
 			}

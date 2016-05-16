@@ -144,4 +144,5 @@ public class Tutorial : MonoBehaviour {
         pillThrown.SetActive(false);
 
     }
+
 }

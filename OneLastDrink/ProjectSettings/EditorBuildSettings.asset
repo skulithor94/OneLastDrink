@@ -29,3 +29,7 @@ EditorBuildSettings:
     path: Assets/Level05.unity
   - enabled: 1
     path: Assets/Highscore.unity
+  - enabled: 1
+    path: Assets/StoryScene.unity
+  - enabled: 1
+    path: Assets/EndScene.unity
